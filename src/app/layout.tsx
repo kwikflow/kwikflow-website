@@ -3,6 +3,7 @@ import { Inter, Syne, Geist } from 'next/font/google';
 import './globals.css';
 import { cn } from "@/lib/utils";
 
+
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
@@ -45,7 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={cn(inter.variable, syne.variable, "font-sans", geist.variable)}>
-      <body className="antialiased text-kwik-text-primary">{children}</body>
+      <body className="antialiased text-kwik-text-primary">
+        {children}
+      </body>
     </html>
   );
 }

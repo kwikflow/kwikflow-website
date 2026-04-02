@@ -1,6 +1,8 @@
 'use client';
 
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export function HowItWorks() {
   const { ref, isVisible } = useIntersectionObserver();
@@ -14,19 +16,15 @@ export function HowItWorks() {
   ];
 
   return (
-    <section ref={ref} className="section-wrap bg-kf-bg py-20 sm:py-[120px]">
+    <section ref={ref} className="section-wrap bg-background py-20 sm:py-[120px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14 sm:mb-20">
           <p className={`section-label mb-4 transition-all duration-700 ${anim}`}>How it works</p>
-          <h2
-            className={`font-display font-extrabold tracking-tighter text-kf-text-primary transition-all duration-700 ${anim}`}
-            style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
-          >
+          <h2 className={`font-display font-extrabold tracking-tighter text-foreground transition-all duration-700 ${anim}`} style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
             Wij regelen alles. Jij doet de klussen.
           </h2>
         </div>
 
-        {/* Responsive grid — never overflows */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {steps.map((s, i) => (
             <div
@@ -34,25 +32,23 @@ export function HowItWorks() {
               className={`relative transition-all duration-700 ${anim}`}
               style={{ transitionDelay: `${200 + i * 100}ms` }}
             >
-              {/* Number badge */}
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-lg mb-5 mx-auto sm:mx-0 transition-all duration-500"
+              <Badge
+                className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-lg mb-5 mx-auto sm:mx-0 p-0 transition-all duration-500"
                 style={{
-                  border: '2px solid #00C8E8',
-                  color: isVisible ? '#040812' : '#00C8E8',
-                  background: isVisible ? '#00C8E8' : 'transparent',
+                  border: '2px solid var(--primary)',
+                  color: isVisible ? 'var(--primary-foreground)' : 'var(--primary)',
+                  background: isVisible ? 'var(--primary)' : 'transparent',
                 }}
               >
                 {s.n}
-              </div>
+              </Badge>
 
-              <div
-                className="p-6 rounded-xl text-center sm:text-left"
-                style={{ background: '#0A1628', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <h3 className="font-display font-semibold text-lg text-kf-text-primary mb-2">{s.title}</h3>
-                <p className="text-sm text-kf-text-secondary leading-relaxed">{s.desc}</p>
-              </div>
+              <Card className="bg-card ring-border">
+                <CardContent className="p-6 text-center sm:text-left">
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                </CardContent>
+              </Card>
             </div>
           ))}
         </div>

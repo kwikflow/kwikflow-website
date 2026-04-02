@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { Card, CardContent } from '@/components/ui/card';
+import { StarIcon } from 'lucide-react';
 
 function Counter({ value, prefix = '', suffix = '', duration = 2000 }: { value: number; prefix?: string; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -61,52 +63,43 @@ export function Results() {
   ];
 
   return (
-    <section ref={ref} id="results" className="section-wrap bg-kf-bg py-20 sm:py-[120px]">
+    <section ref={ref} id="results" className="section-wrap bg-background py-20 sm:py-[120px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14 sm:mb-20">
           <p className={`section-label mb-4 transition-all duration-700 ${anim}`}>Resultaten</p>
-          <h2
-            className={`font-display font-extrabold tracking-tighter text-kf-text-primary transition-all duration-700 ${anim}`}
-            style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
-          >
+          <h2 className={`font-display font-extrabold tracking-tighter text-foreground transition-all duration-700 ${anim}`} style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
             Wat onze klanten bereiken
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {cards.map((c, i) => (
-            <div
+            <Card
               key={i}
-              className={`glass-card rounded-[20px] p-8 sm:p-10 transition-all duration-700 ${anim}`}
+              className={`bg-card ring-border hover:ring-primary/40 hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(0,200,232,0.15)] rounded-[20px] transition-all duration-700 ${anim}`}
               style={{ transitionDelay: `${200 + i * 100}ms` }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 relative">
-                  <Image
-                    src={c.photo}
-                    alt={`Foto van ${c.name}`}
-                    width={56}
-                    height={56}
-                    className="object-cover w-full h-full"
-                    loading="lazy"
-                  />
+              <CardContent className="p-8 sm:p-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 relative">
+                    <Image src={c.photo} alt={`Foto van ${c.name}`} width={56} height={56} className="object-cover w-full h-full" loading="lazy" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-base text-foreground">{c.name}</p>
+                    <p className="text-sm text-muted-foreground">{c.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-base text-kf-text-primary">{c.name}</p>
-                  <p className="text-sm text-kf-text-secondary">{c.role}</p>
+                <p className="text-[15px] text-muted-foreground leading-[1.7] italic mb-6">&ldquo;{c.quote}&rdquo;</p>
+                <div className="mb-3">
+                  <Counter value={c.value} prefix={c.prefix} suffix={c.suffix} />
                 </div>
-              </div>
-
-              <p className="text-[15px] text-kf-text-secondary leading-[1.7] italic mb-6">
-                &ldquo;{c.quote}&rdquo;
-              </p>
-
-              <div className="mb-3">
-                <Counter value={c.value} prefix={c.prefix} suffix={c.suffix} />
-              </div>
-
-              <div className="text-kf-cyan text-lg tracking-wider">★★★★★</div>
-            </div>
+                <div className="flex gap-0.5 text-primary">
+                  {Array.from({ length: 5 }).map((_, si) => (
+                    <StarIcon key={si} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
