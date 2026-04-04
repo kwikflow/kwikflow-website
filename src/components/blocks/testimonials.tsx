@@ -67,10 +67,10 @@ export function Testimonials() {
             <button onClick={shuffle} style={{background:'transparent',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'10px 24px',color:'#00C8E8',fontSize:'13px',fontWeight:600,cursor:'pointer'}}>Volgende testimonial →</button>
             <span style={{color:'#475569',fontSize:'12px'}}>{offset + 1} / {testimonials.length}</span>
           </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',width:'100%',maxWidth:'700px',padding:'0 16px'}}>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:'8px',width:'100%',maxWidth:'700px',padding:'0 16px'}}>
             {testimonials.map((t,i) => (
-              <div key={i} onClick={()=>setOffset(i)} style={{background:offset===i?'#0F1F3D':'#0A1628',border:offset===i?'1px solid rgba(0,200,232,0.4)':'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',padding:'16px 8px',textAlign:'center' as const,cursor:'pointer',transition:'all 0.2s',overflow:'hidden',minWidth:0}}>
-                <div style={{fontSize:'clamp(18px,4vw,28px)',fontWeight:800,color:'#00C8E8',fontFamily:'Syne,sans-serif',wordBreak:'break-word' as const}}>{t.result}</div>
+              <div key={i} onClick={()=>setOffset(i)} style={{background:offset===i?'#0F1F3D':'#0A1628',border:offset===i?'1px solid rgba(0,200,232,0.4)':'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',padding:'16px 12px',textAlign:'center' as const,cursor:'pointer',transition:'all 0.2s',overflow:'hidden',minWidth:0}}>
+                <div style={{fontSize:'24px',fontWeight:800,color:'#00C8E8',fontFamily:'Syne,sans-serif',whiteSpace:'nowrap' as const,overflow:'hidden',textOverflow:'ellipsis'}}>{t.result}</div>
                 <div style={{color:'#fff',fontSize:'12px',fontWeight:600,marginTop:'6px'}}>{t.label}</div>
                 <div style={{color:'#475569',fontSize:'11px',marginTop:'4px'}}>{t.role}</div>
               </div>
