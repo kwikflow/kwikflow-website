@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 const testimonials = [
   { id:1, quote:'Het systeem nam maandag 4 oproepen op terwijl ik aan het werk was. Dinsdag had ik €840 extra omzet. Ik snap niet dat ik dit zo lang zonder heb gedaan.', author:'Marco van den Berg', role:'Loodgieter · Rotterdam', result:'€840', label:'extra omzet', avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=128&h=128&fit=crop&crop=face' },
@@ -15,8 +15,8 @@ const positions = ['front','middle','back'] as const
 export function Testimonials() {
   const [offset, setOffset] = useState(0)
   const shuffle = () => setOffset(o => (o + 1) % testimonials.length)
+  const touchStartX = useRef(0)
 
-  // Show 3 cards from current offset, wrapping around
   const visible = [0,1,2].map(i => testimonials[(offset + i) % testimonials.length])
 
   const cardStyle = (position: string): React.CSSProperties => ({
@@ -41,7 +41,14 @@ export function Testimonials() {
           <h2 style={{fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,56px)',fontWeight:800,color:'#fff',marginTop:'12px',letterSpacing:'-0.03em'}}>Wat onze klanten bereiken</h2>
         </div>
         <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'60px'}}>
-          <div style={{position:'relative',height:'440px',width:'320px'}}>
+          <div
+            style={{position:'relative',height:'440px',width:'320px'}}
+            onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX }}
+            onTouchEnd={(e) => {
+              const diff = touchStartX.current - e.changedTouches[0].clientX
+              if (Math.abs(diff) > 50) shuffle()
+            }}
+          >
             {visible.map((t,i) => (
               <div key={t.id} style={cardStyle(positions[i])} onClick={()=>{ if(i!==0) shuffle() }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -60,10 +67,10 @@ export function Testimonials() {
             <button onClick={shuffle} style={{background:'transparent',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'10px 24px',color:'#00C8E8',fontSize:'13px',fontWeight:600,cursor:'pointer'}}>Volgende testimonial →</button>
             <span style={{color:'#475569',fontSize:'12px'}}>{offset + 1} / {testimonials.length}</span>
           </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))',gap:'12px',width:'100%',maxWidth:'900px'}}>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',width:'100%',maxWidth:'700px',padding:'0 16px'}}>
             {testimonials.map((t,i) => (
-              <div key={i} onClick={()=>setOffset(i)} style={{background:offset===i?'#0F1F3D':'#0A1628',border:offset===i?'1px solid rgba(0,200,232,0.4)':'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',padding:'20px',textAlign:'center',cursor:'pointer',transition:'all 0.2s'}}>
-                <div style={{fontSize:'28px',fontWeight:800,color:'#00C8E8',fontFamily:'Syne,sans-serif'}}>{t.result}</div>
+              <div key={i} onClick={()=>setOffset(i)} style={{background:offset===i?'#0F1F3D':'#0A1628',border:offset===i?'1px solid rgba(0,200,232,0.4)':'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',padding:'16px 8px',textAlign:'center' as const,cursor:'pointer',transition:'all 0.2s',overflow:'hidden',minWidth:0}}>
+                <div style={{fontSize:'clamp(18px,4vw,28px)',fontWeight:800,color:'#00C8E8',fontFamily:'Syne,sans-serif',wordBreak:'break-word' as const}}>{t.result}</div>
                 <div style={{color:'#fff',fontSize:'12px',fontWeight:600,marginTop:'6px'}}>{t.label}</div>
                 <div style={{color:'#475569',fontSize:'11px',marginTop:'4px'}}>{t.role}</div>
               </div>
