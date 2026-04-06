@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     'vakmensen',
     'Netherlands',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+  },
   openGraph: {
     title: 'Kwikflow - AI Automatisering voor Vakmensen',
     description:
