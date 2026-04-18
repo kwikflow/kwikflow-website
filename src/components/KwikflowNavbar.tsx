@@ -18,8 +18,8 @@ export default function KwikflowNavbar() {
   }, [open])
 
   const links: [string, string][] = [
-    ['#diensten','Diensten'],['#prijzen','Prijzen'],
-    ['#resultaten','Resultaten'],['#contact','Contact']
+    ['#werkwijze','Werkwijze'],['#diensten','Diensten'],['#prijzen','Prijzen'],
+    ['#resultaten','Resultaten'],['#faq','FAQ'],['#contact','Contact']
   ]
 
   return (
@@ -44,7 +44,7 @@ export default function KwikflowNavbar() {
           <a href="#contact" className="hidden sm:inline-flex" style={{border:'1px solid #00C8E8',color:'#00C8E8',padding:'10px 24px',borderRadius:'8px',fontSize:'14px',fontWeight:600,textDecoration:'none',transition:'all 0.2s',background:'transparent'}}
             onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.background='#00C8E8';(e.currentTarget as HTMLElement).style.color='#040812'}}
             onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.background='transparent';(e.currentTarget as HTMLElement).style.color='#00C8E8'}}>
-            Start gratis
+            Plan gratis strategiegesprek
           </a>
 
           {/* Mobile hamburger */}
@@ -73,7 +73,7 @@ export default function KwikflowNavbar() {
               </a>
             ))}
             <a href="#contact" onClick={() => setOpen(false)} style={{marginTop:'16px',background:'#00C8E8',color:'#040812',padding:'16px 40px',borderRadius:'10px',fontSize:'16px',fontWeight:700,textDecoration:'none',fontFamily:'Syne,sans-serif'}}>
-              Start gratis
+              Plan strategiegesprek
             </a>
           </div>
         </div>
