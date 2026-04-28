@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import './funnel.css';
 
@@ -111,7 +111,7 @@ function Reveal({
   children: React.ReactNode;
   stagger?: boolean;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
 }) {
   const { ref, isVisible } = useIntersectionObserver({ once: true, margin: "0px 0px -60px 0px", threshold: 0.12 });
   const baseClass = stagger ? "reveal-stagger" : "reveal";
