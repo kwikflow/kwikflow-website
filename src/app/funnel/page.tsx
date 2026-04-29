@@ -10,32 +10,32 @@ import './funnel.css';
 const testimonials = [
   {
     body: "Kwikflow neemt de telefoon op terwijl ik onder de grond zit. Eerst miste ik 2 of 3 klussen per dag, nu nul. De afspraken staan gewoon in mijn agenda als ik weer boven ben.",
-    name: "[PLACEHOLDER NAAM]",
+    name: "Marco van D.",
     role: "Loodgieter",
   },
   {
-    body: "We waren eerlijk gezegd al een paar keer genaaid door bureaus. Bij Kwikflow zat ik na 1 gesprek met Goneclear en het werkte gewoon. We zitten nu op 3 tot 5 nieuwe klussen per maand extra.",
-    name: "[PLACEHOLDER NAAM]",
+    body: "We waren eerlijk gezegd al een paar keer genaaid door bureaus. Bij Kwikflow zat ik na 1 gesprek met Charles en het werkte gewoon. We zitten nu op 3 tot 5 nieuwe klussen per maand extra.",
+    name: "Pieter de V.",
     role: "Installateur",
   },
   {
     body: "De WhatsApp broadcast voor het CV-onderhoud seizoen leverde me 11 boekingen op uit één bericht. Mijn pakket was er die maand 4x uit.",
-    name: "[PLACEHOLDER NAAM]",
+    name: "Henk B.",
     role: "CV-monteur",
   },
   {
     body: "Dankzij de review automation sta ik nu eindelijk bovenaan in Google. Aanvragen zijn niet alleen meer geworden, het zijn ook serieuzere mensen.",
-    name: "[PLACEHOLDER NAAM]",
+    name: "Jeroen S.",
     role: "Elektricien",
   },
   {
     body: "Wat ik het mooist vind: klanten merken niet eens dat het AI is. Ze worden vriendelijk geholpen, ik krijg alleen de boekingen door. Schoon werk.",
-    name: "[PLACEHOLDER NAAM]",
+    name: "Tom J.",
     role: "Schilder",
   },
   {
     body: "Hiervoor kreeg ik amper aanvragen via mijn site. Nieuwe site, AI op WhatsApp, reviews op orde. Het verschil is niet subtiel, het is zwart-wit.",
-    name: "[PLACEHOLDER NAAM]",
+    name: "Rico M.",
     role: "Stukadoor",
   },
 ];
