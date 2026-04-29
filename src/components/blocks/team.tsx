@@ -36,9 +36,9 @@ export function Team() {
             borderRadius: '16px',
             textAlign: 'left',
           }}>
-            <div style={{ fontSize: '32px', fontWeight: 600, color: '#00C8E8', letterSpacing: '-0.025em', marginBottom: '8px' }}>NL only</div>
+            <div style={{ fontSize: '32px', fontWeight: 600, color: '#00C8E8', letterSpacing: '-0.025em', marginBottom: '8px' }}>BENELUX</div>
             <div style={{ fontSize: '14px', color: '#8A93A8', lineHeight: '1.5' }}>
-              We werken alleen met Nederlandse vakmensen. Lokaal, gefocust, schaalbaar voor jou.
+              We werken met vakmensen in Nederland en België. Lokaal, gefocust, schaalbaar voor jou.
             </div>
           </div>
 
