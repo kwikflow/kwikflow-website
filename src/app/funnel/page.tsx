@@ -362,11 +362,11 @@ export default function FunnelPage() {
 
           <div className="hero-content">
             <Reveal as="h1">
-              Zo zorgen wij dat vakmannen GEEN klus meer mislopen,
-              <span className="cyan-line">vanaf €297 per maand.</span>
+              Mis nooit meer een klus.
+              <span className="cyan-line">Vanaf €97 per maand.</span>
             </Reveal>
             <Reveal as="p" className="hero-sub">
-              AI die de telefoon opneemt terwijl u aan het werk bent. Plus alles wat u verder nodig heeft om in Google bovenaan te staan.
+              AI neemt uw telefoon op, beantwoordt WhatsApp, en zorgt dat u in Google bovenaan komt. Terwijl u aan het werk bent.
             </Reveal>
 
             <Reveal className="hero-mockup">
@@ -407,7 +407,7 @@ export default function FunnelPage() {
             <Reveal className="hero-cta">
               <a href="#vsl" className="btn-primary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor" /></svg>
-                Bekijk de video van 6 minuten
+                Bekijk de video
               </a>
               <div className="proof-line">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
@@ -613,14 +613,13 @@ export default function FunnelPage() {
             <div className="price-card">
               <span className="price-tier">Starter</span>
               <div className="price-amount">
-                €197<span className="per">/m</span>
+                €97<span className="per">/maand</span>
               </div>
-              <span className="price-name">Voor wie online begint</span>
+              <span className="price-name">Online aanwezigheid op orde</span>
               <ul className="price-list">
-                <li><CheckIcon /> Nieuwe website</li>
-                <li><CheckIcon /> AI op website & WhatsApp</li>
+                <li><CheckIcon /> Nieuwe website (of widget op bestaande site)</li>
                 <li><CheckIcon /> Google reviews automation</li>
-                <li><CheckIcon /> Tot 100 leads/maand</li>
+                <li><CheckIcon /> Hosting + domein inbegrepen</li>
               </ul>
               <a href="#cta" className="price-cta">
                 Kies Starter
@@ -631,14 +630,14 @@ export default function FunnelPage() {
               <span className="price-badge">Meest gekozen</span>
               <span className="price-tier">Groei</span>
               <div className="price-amount">
-                €297<span className="per">/m</span>
+                €197<span className="per">/maand</span>
               </div>
-              <span className="price-name">De voice agent erbij</span>
+              <span className="price-name">AI op alle kanalen</span>
               <ul className="price-list">
                 <li><CheckIcon /> Alles uit Starter</li>
-                <li><CheckIcon /> AI voice agent 24/7</li>
-                <li><CheckIcon /> Automatische afspraken</li>
-                <li><CheckIcon /> Prioriteit support</li>
+                <li><CheckIcon /> AI op uw website widget</li>
+                <li><CheckIcon /> AI op Instagram, Facebook, WhatsApp</li>
+                <li><CheckIcon /> Reageert binnen seconden, 24/7</li>
               </ul>
               <a href="#cta" className="price-cta">
                 Kies Groei
@@ -648,14 +647,14 @@ export default function FunnelPage() {
             <div className="price-card">
               <span className="price-tier">Schaal</span>
               <div className="price-amount">
-                €397<span className="per">/m</span>
+                €397<span className="per">/maand</span>
               </div>
-              <span className="price-name">Met campagnes erbovenop</span>
+              <span className="price-name">Voice agent + campagnes</span>
               <ul className="price-list">
                 <li><CheckIcon /> Alles uit Groei</li>
-                <li><CheckIcon /> Unlimited broadcasts</li>
-                <li><CheckIcon /> Custom AI coaching</li>
-                <li><CheckIcon /> Dedicated account manager</li>
+                <li><CheckIcon /> AI voice agent neemt telefoon op</li>
+                <li><CheckIcon /> WhatsApp broadcasts naar klantenlijst</li>
+                <li><CheckIcon /> Seizoens-activatie campagnes</li>
               </ul>
               <a href="#cta" className="price-cta">
                 Kies Schaal
