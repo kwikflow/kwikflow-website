@@ -370,35 +370,70 @@ export default function FunnelPage() {
             </Reveal>
 
             <Reveal className="hero-mockup">
-              <div className="phone" role="img" aria-label="Voorbeeld WhatsApp gesprek met de Kwikflow AI">
+              <div className="phone">
                 <div className="phone-screen">
                   <div className="phone-statusbar">
                     <span>9:41</span>
-                    <svg width="14" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+                    <span style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                        <path d="M1 8h2V5H1v3zm4 0h2V3H5v5zm4 0h2V1H9v7z" fill="currentColor" />
+                      </svg>
+                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                        <path d="M7 1.5c2.2 0 4.2.9 5.7 2.4l-1.4 1.4A6 6 0 0 0 7 3.5a6 6 0 0 0-4.3 1.8L1.3 3.9A8 8 0 0 1 7 1.5zm0 3.5c1.1 0 2.1.4 2.9 1.2l-1.4 1.4A2 2 0 0 0 7 7c-.5 0-1 .2-1.4.6L4.1 6.2A4 4 0 0 1 7 5zm0 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor" />
+                      </svg>
+                      <svg width="22" height="10" viewBox="0 0 22 10" fill="none">
+                        <rect x="0.5" y="1.5" width="18" height="7" rx="1.5" stroke="currentColor" opacity="0.5" />
+                        <rect x="2" y="3" width="14" height="4" rx="0.5" fill="currentColor" />
+                        <rect x="19.5" y="3.5" width="1.5" height="3" rx="0.5" fill="currentColor" opacity="0.5" />
+                      </svg>
+                    </span>
                   </div>
+
                   <div className="wa-header">
-                    <div className="wa-avatar">K</div>
+                    <div className="wa-avatar">JK</div>
                     <div>
-                      <div className="wa-name">Kwikflow AI <span style={{ fontSize: "10px", color: "var(--cyan)" }}>●</span></div>
-                      <div className="wa-online">typing...</div>
+                      <div className="wa-name">
+                        Jan — Loodgieter
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                          <circle cx="12" cy="12" r="10" fill="#00C8E8" />
+                          <path d="m8 12 3 3 5-6" stroke="#040812" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                      <div className="wa-online">online · reageert direct</div>
                     </div>
                   </div>
-                  <div className="wa-bubble">
-                    Hallo! Bedankt voor uw bericht. Kan ik u helpen met een klus?
-                    <span className="wa-bubble-time">9:38</span>
-                  </div>
-                  <div className="wa-bubble">
-                    Ja, ik wil graag een offerte voor waterschade
-                    <span className="wa-bubble-time">9:39</span>
-                  </div>
-                  <div className="wa-bubble">
-                    Graag! Kan ik uw adres en telefoonnummer hebben?
-                    <span className="wa-bubble-time">9:40</span>
-                  </div>
-                  <div className="wa-typing">
-                    <span />
-                    <span />
-                    <span />
+
+                  <div className="wa-chat">
+                    <div className="wa-bubble wa-in">
+                      Goedemiddag, ik heb een lekkage onder de gootsteen. Kunt u langskomen?
+                      <span className="wa-bubble-time">14:32</span>
+                    </div>
+
+                    <div className="wa-bubble wa-out">
+                      Vervelend om te horen. Druipt het of staat er water?
+                      <span className="wa-bubble-time">14:32 ✓✓</span>
+                    </div>
+
+                    <div className="wa-bubble wa-in">
+                      Druipt nog, maar wel constant.
+                      <span className="wa-bubble-time">14:33</span>
+                    </div>
+
+                    <div className="wa-bubble wa-out">
+                      Ik kan Jan morgen tussen 9 en 11 langs sturen. Schikt dat?
+                      <span className="wa-bubble-time">14:33 ✓✓</span>
+                    </div>
+
+                    <div className="wa-bubble wa-in">
+                      Ja prima, doen we dat. Adres is Hoofdstraat 12.
+                      <span className="wa-bubble-time">14:34</span>
+                    </div>
+
+                    <div className="wa-typing" aria-label="AI typt">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
                   </div>
                 </div>
               </div>
