@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Script from 'next/script';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import './funnel.css';
 
@@ -684,18 +685,19 @@ export default function FunnelPage() {
       </section>
 
       {/* 9. FINAL CTA */}
-      <section id="cta">
-        <div className="final-cta">
-          <Reveal>
-            <h2>Klaar om geen klus meer te missen?</h2>
-            <p>Bekijk de video, dan praten we vrijblijvend verder.</p>
-            <a href="#vsl" className="btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M8 5v14l11-7L8 5z" fill="currentColor" />
-              </svg>
-              Bekijk de video van 6 minuten
-            </a>
-          </Reveal>
+      <section id="cta" className="section">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="eyebrow">Plan je gesprek</span>
+            <h2 className="section-heading">Klaar om geen klus meer te missen?</h2>
+            <p className="section-sub">Plan een gratis gesprek van 15 minuten. Geen verkoopverhaal, gewoon kijken of het past.</p>
+          </div>
+          <div
+            className="calendly-inline-widget"
+            data-url="https://calendly.com/kwikflow-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=040812&text_color=ffffff&primary_color=00c8e8"
+            style={{ minWidth: '320px', height: '700px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0, 200, 232, 0.15)' }}
+          />
+          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
         </div>
       </section>
 
