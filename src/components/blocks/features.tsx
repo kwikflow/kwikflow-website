@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
-import { Phone, MessageSquare, Star, Zap, Users } from 'lucide-react'
+import { Phone, MessageSquare, Star, Zap, Users, Calendar } from 'lucide-react'
 
-const st = { section:{background:'#040812',padding:'120px 0'}, wrap:{maxWidth:'1200px',margin:'0 auto',padding:'0 32px'}, card:{background:'#0A1628',border:'1px solid rgba(0,200,232,0.15)',borderRadius:'16px'}, icon:{width:'64px',height:'64px',borderRadius:'50%',background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto'}, badge:{background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'4px 16px',color:'#00C8E8',fontSize:'13px',fontWeight:700,display:'inline-block',marginTop:'12px'}, label:{color:'#00C8E8',fontSize:'11px',fontWeight:700,textTransform:'uppercase' as const,letterSpacing:'0.14em',fontFamily:'monospace'}, h2:{fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,56px)',fontWeight:800,color:'#fff',marginTop:'12px',letterSpacing:'-0.03em'}, sub:{color:'#94A3B8',fontSize:'18px',marginTop:'16px',maxWidth:'480px',margin:'16px auto 0'} }
+const st = { section:{background:'#040812',padding:'120px 0'}, wrap:{maxWidth:'1200px',margin:'0 auto',padding:'0 32px'}, card:{background:'#0A1628',border:'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',transition:'transform 0.2s ease, border-color 0.2s ease'}, icon:{width:'64px',height:'64px',borderRadius:'50%',background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto'}, badge:{background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'4px 16px',color:'#00C8E8',fontSize:'13px',fontWeight:700,display:'inline-block',marginTop:'12px'}, label:{color:'#00C8E8',fontSize:'11px',fontWeight:700,textTransform:'uppercase' as const,letterSpacing:'0.14em',fontFamily:'monospace'}, h2:{fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,56px)',fontWeight:800,color:'#fff',marginTop:'12px',letterSpacing:'-0.03em'}, sub:{color:'#94A3B8',fontSize:'18px',marginTop:'16px',maxWidth:'480px',margin:'16px auto 0'} }
 
 const tabs = [
   { id:'website', label:'Website & Zichtbaarheid' },
@@ -68,6 +68,9 @@ export function Features() {
     { icon:<Phone style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Telefonie', desc:'AI voice agent neemt op als jij op een klus zit', price:'vanaf €97/mo' },
     { icon:<MessageSquare style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Kanaal automatie', desc:'AI op WhatsApp, Instagram en Facebook. Geen enkel bericht gemist.', price:'vanaf €19/mo' },
     { icon:<Star style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Reviews & reputatie', desc:'Automatisch reviewverzoek na elke klus. Hogere Google positie.', price:'vanaf €29/mo' },
+    { icon:<Zap style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'WhatsApp broadcasts', desc:'Seizoensgebonden campagnes naar je klantenlijst. 1 broadcast = gemiddeld €2.500 extra omzet.', price:'vanaf €47/mo' },
+    { icon:<Users style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Klantcommunicatie', desc:'Bevestigingen, herinneringen, werkbonnen en facturen — allemaal automatisch.', price:'vanaf €19/mo' },
+    { icon:<Calendar style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Agenda & planning', desc:'Afspraken automatisch in je agenda. Geen dubbele boekingen meer.', price:'vanaf €19/mo' },
   ]
 
   return (
@@ -81,7 +84,7 @@ export function Features() {
         </div>
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(280px,100%),1fr))',gap:'16px'}}>
           {cards.map((c,i) => (
-            <Card key={i} style={st.card}>
+            <Card key={i} style={st.card} onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(0,200,232,0.3)'; el.style.transform = 'translateY(-2px)' }} onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(0,200,232,0.15)'; el.style.transform = 'translateY(0)' }}>
               <CardContent style={{padding:'32px',textAlign:'center'}}>
                 <div style={st.icon}>{c.icon}</div>
                 <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff',margin:'16px 0 8px'}}>{c.title}</h3>
@@ -90,26 +93,6 @@ export function Features() {
               </CardContent>
             </Card>
           ))}
-          <Card style={{...st.card,gridColumn:'1 / -1',background:'linear-gradient(135deg,#0A1628,#1B2A5E)',border:'1px solid rgba(0,200,232,0.3)'}}>
-            <CardContent className="features-broadcast" style={{padding:'32px',display:'flex',flexDirection:'column' as const,gap:'16px'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'16px',flex:1}}>
-                <div style={{...st.icon,flexShrink:0}}><Zap style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/></div>
-                <div>
-                  <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff',margin:'0 0 8px'}}>WhatsApp broadcasts</h3>
-                  <p style={{color:'#94A3B8',fontSize:'14px',lineHeight:1.6,margin:0}}>Seizoensgebonden campagnes naar je klantenlijst. 1 broadcast = gemiddeld €2.500 extra omzet.</p>
-                </div>
-              </div>
-              <span className="broadcast-badge" style={st.badge}>€47/mo</span>
-            </CardContent>
-          </Card>
-          <Card style={st.card}>
-            <CardContent style={{padding:'32px',textAlign:'center'}}>
-              <div style={st.icon}><Users style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/></div>
-              <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff',margin:'16px 0 8px'}}>Klantcommunicatie</h3>
-              <p style={{color:'#94A3B8',fontSize:'14px',lineHeight:1.6}}>Bevestigingen, herinneringen, werkbonnen en facturen — allemaal automatisch.</p>
-              <span style={st.badge}>vanaf €19/mo</span>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Tabbed services section */}
