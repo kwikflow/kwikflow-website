@@ -430,16 +430,20 @@ export default function FunnelPage() {
           </Reveal>
 
           <Reveal>
-            <div className="vsl-wrap" id="vsl-player" role="button" tabIndex={0} aria-label="Speel video af">
-              <div className="vsl-thumb">
-                <div className="vsl-grid" aria-hidden="true" />
-                <div className="vsl-play">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
-                </div>
+            <div className="vsl-wrap">
+              <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '16px', border: '1px solid rgba(0, 200, 232, 0.2)' }}>
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/zuVdRg_msCA?rel=0&modestbranding=1&showinfo=0"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Kwikflow VSL"
+                />
               </div>
               <div className="vsl-meta">
-                <span>Zag kwikflow intro + case studies</span>
-                <span className="vsl-runtime">6:00</span>
+                <span className="vsl-runtime">4:48</span>
+                <span>Hoe Kwikflow werkt — uitgelegd door oprichter</span>
               </div>
             </div>
           </Reveal>
