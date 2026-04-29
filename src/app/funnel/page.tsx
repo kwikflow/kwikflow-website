@@ -356,7 +356,7 @@ export default function FunnelPage() {
 
   const handleCalendlyLoad = () => {
     if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Calendly_View', { content_name: 'Funnel' });
+      (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
     }
   };
 
