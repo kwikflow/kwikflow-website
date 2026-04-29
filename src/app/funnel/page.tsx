@@ -333,6 +333,33 @@ function FAQItem({ q, a, defaultOpen = false }: { q: string; a: string; defaultO
 /* ---------- Main Page ---------- */
 
 export default function FunnelPage() {
+  const vslRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'ViewContent', {
+        content_name: 'Funnel Page',
+        content_category: 'Landing',
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!vslRef.current) return;
+    const timer = window.setTimeout(() => {
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'VSL_View', { content_name: 'Funnel' });
+      }
+    }, 30000);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const handleCalendlyLoad = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Calendly_View', { content_name: 'Funnel' });
+    }
+  };
+
   return (
     <>
       {/* 1. STICKY TOP RIBBON */}
@@ -466,7 +493,7 @@ export default function FunnelPage() {
           </Reveal>
 
           <Reveal>
-            <div className="vsl-wrap">
+            <div className="vsl-wrap" ref={vslRef}>
               <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '16px', border: '1px solid rgba(0, 200, 232, 0.2)' }}>
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/zuVdRg_msCA?rel=0&modestbranding=1&showinfo=0"
@@ -656,7 +683,15 @@ export default function FunnelPage() {
                 <li><CheckIcon /> Google reviews automation</li>
                 <li><CheckIcon /> Hosting + domein inbegrepen</li>
               </ul>
-              <a href="#cta" className="price-cta">
+              <a
+                href="#cta"
+                className="price-cta"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
+                  }
+                }}
+              >
                 Kies Starter
               </a>
             </div>
@@ -674,7 +709,15 @@ export default function FunnelPage() {
                 <li><CheckIcon /> AI op Instagram, Facebook, WhatsApp</li>
                 <li><CheckIcon /> Reageert binnen seconden, 24/7</li>
               </ul>
-              <a href="#cta" className="price-cta">
+              <a
+                href="#cta"
+                className="price-cta"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
+                  }
+                }}
+              >
                 Kies Groei
               </a>
             </div>
@@ -691,7 +734,15 @@ export default function FunnelPage() {
                 <li><CheckIcon /> WhatsApp broadcasts naar klantenlijst</li>
                 <li><CheckIcon /> Seizoens-activatie campagnes</li>
               </ul>
-              <a href="#cta" className="price-cta">
+              <a
+                href="#cta"
+                className="price-cta"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
+                  }
+                }}
+              >
                 Kies Schaal
               </a>
             </div>
@@ -731,7 +782,7 @@ export default function FunnelPage() {
             data-url="https://calendly.com/kwikflow-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=040812&text_color=ffffff&primary_color=00c8e8"
             style={{ minWidth: '320px', height: '700px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0, 200, 232, 0.15)' }}
           />
-          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" onLoad={handleCalendlyLoad} />
         </div>
       </section>
 
