@@ -4,7 +4,9 @@ const logos = [
   { name: 'WhatsApp', src: 'https://cdn.simpleicons.org/whatsapp/25D366' },
   { name: 'Instagram', src: 'https://cdn.simpleicons.org/instagram/E4405F' },
   { name: 'Facebook', src: 'https://cdn.simpleicons.org/facebook/1877F2' },
+  { name: 'Outlook', src: '/logos/outlook.png' },
   { name: 'Gmail', src: 'https://cdn.simpleicons.org/gmail/EA4335' },
+  { name: 'Mollie', src: '/logos/mollie.png' },
   { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
   { name: 'Google Calendar', src: 'https://cdn.simpleicons.org/googlecalendar/4285F4' },
 ]
