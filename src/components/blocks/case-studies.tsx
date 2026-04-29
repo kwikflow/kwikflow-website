@@ -2,9 +2,26 @@
 
 const cases = [
   {
-    name: 'Marco van den Berg',
-    role: 'Loodgieter · Rotterdam',
-    photo: 'https://placehold.co/400x400/0B1A3E/00C8E8?text=Klantfoto',
+    name: 'Loodgieter',
+    role: 'Regio Zuid-Holland',
+    icon: (
+      <div style={{
+        width: '120px',
+        height: '120px',
+        borderRadius: '50%',
+        background: 'linear-gradient(135deg, #1B2A5E 0%, #0a1530 100%)',
+        border: '2px solid rgba(0, 200, 232, 0.3)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto',
+        boxShadow: '0 8px 32px rgba(0, 200, 232, 0.15)',
+      }}>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00C8E8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+        </svg>
+      </div>
+    ),
     before: 'Marco werkte vaak in kruipruimtes of op daken. Telefoon in de auto, oproep gemist. Hij schatte dat hij per week 3–4 klussen misliep omdat klanten niemand anders belden als ze geen gehoor kregen.',
     actions: [
       'AI voice agent die 24/7 opneemt, klant noteert + klus-type herkent',
@@ -19,9 +36,27 @@ const cases = [
     quote: 'Maandag had ik al 4 klussen staan voordat ik koffie op had. Voelt alsof ik een medewerker heb zonder loonstrook.',
   },
   {
-    name: 'Lisa Vermeer',
-    role: 'Schoonmaakbedrijf · Eindhoven',
-    photo: 'https://placehold.co/400x400/0B1A3E/00C8E8?text=Klantfoto',
+    name: 'Schoonmaakbedrijf',
+    role: 'Regio Noord-Brabant',
+    icon: (
+      <div style={{
+        width: '120px',
+        height: '120px',
+        borderRadius: '50%',
+        background: 'linear-gradient(135deg, #1B2A5E 0%, #0a1530 100%)',
+        border: '2px solid rgba(0, 200, 232, 0.3)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto',
+        boxShadow: '0 8px 32px rgba(0, 200, 232, 0.15)',
+      }}>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00C8E8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z" />
+          <path d="M5 3v4M3 5h4M19 17v4M17 19h4" />
+        </svg>
+      </div>
+    ),
     before: 'Lisa had 12 Google reviews en stond op pagina 2. Ze vroeg soms zelf om reviews maar vergat dat 80% van de tijd. Nieuwe klanten vonden haar niet.',
     actions: [
       'Automatisch review-verzoek via WhatsApp 2u na elke klus',
@@ -36,9 +71,28 @@ const cases = [
     quote: 'Ik had 3 maanden lang niks hoeven doen. Reviews rolden binnen. Klanten bellen nu ons i.p.v. de concurrent.',
   },
   {
-    name: 'Stef Bakker',
-    role: 'Dakdekker · Groningen',
-    photo: 'https://placehold.co/400x400/0B1A3E/00C8E8?text=Klantfoto',
+    name: 'Dakdekker',
+    role: 'Regio Noord-Nederland',
+    icon: (
+      <div style={{
+        width: '120px',
+        height: '120px',
+        borderRadius: '50%',
+        background: 'linear-gradient(135deg, #1B2A5E 0%, #0a1530 100%)',
+        border: '2px solid rgba(0, 200, 232, 0.3)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto',
+        boxShadow: '0 8px 32px rgba(0, 200, 232, 0.15)',
+      }}>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00C8E8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V11z" />
+          <path d="M3 11l9-8 9 8" strokeWidth="2.4" />
+          <path d="M9 21V13h6v8" />
+        </svg>
+      </div>
+    ),
     before: 'Stef had een mooi seizoen voor de boeg maar was al volgeboekt tot juli. Nieuwe aanvragen kwamen niet eens bij hem terecht omdat hij niet terugbelde.',
     actions: [
       'AI voice agent neemt op + herkent urgentie (lekkage = prio)',
@@ -71,9 +125,8 @@ export function CaseStudies() {
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,200,232,0.3)'}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,200,232,0.15)'}>
               <div style={{ textAlign: 'center' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.photo} alt={c.name} width={120} height={120} loading="lazy" style={{ borderRadius: '16px', border: '2px solid rgba(0,200,232,0.15)', margin: '0 auto 12px', objectFit: 'cover' }} />
-                <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>{c.name}</h4>
+                {c.icon}
+                <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', marginBottom: '2px', marginTop: '16px' }}>{c.name}</h4>
                 <div style={{ fontSize: '13px', color: '#6B7A94', lineHeight: 1.4 }}>{c.role}</div>
               </div>
               <div>
@@ -101,6 +154,9 @@ export function CaseStudies() {
             </div>
           ))}
         </div>
+        <p style={{ textAlign: 'center', fontSize: '13px', color: 'var(--muted)', fontStyle: 'italic', marginTop: '32px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+          Voorbeeldcases gebaseerd op typische workflows binnen elk vakgebied. Echte case studies volgen zodra onze eerste klanten 90 dagen draaien.
+        </p>
       </div>
       <style>{`
         @media(max-width:768px){
