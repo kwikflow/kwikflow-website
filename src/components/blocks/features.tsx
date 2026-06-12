@@ -1,9 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Card, CardContent } from '@/components/ui/card'
 import { Phone, MessageSquare, Star, Zap, Users, Calendar } from 'lucide-react'
-
-const st = { section:{background:'#040812',padding:'120px 0'}, wrap:{maxWidth:'1200px',margin:'0 auto',padding:'0 32px'}, card:{background:'#0A1628',border:'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',transition:'transform 0.2s ease, border-color 0.2s ease'}, icon:{width:'64px',height:'64px',borderRadius:'50%',background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto'}, badge:{background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'4px 16px',color:'#00C8E8',fontSize:'13px',fontWeight:700,display:'inline-block',marginTop:'12px'}, label:{color:'#00C8E8',fontSize:'11px',fontWeight:700,textTransform:'uppercase' as const,letterSpacing:'0.14em',fontFamily:'monospace'}, h2:{fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,56px)',fontWeight:800,color:'#fff',marginTop:'12px',letterSpacing:'-0.03em'}, sub:{color:'#94A3B8',fontSize:'18px',marginTop:'16px',maxWidth:'480px',margin:'16px auto 0'} }
 
 const tabs = [
   { id:'website', label:'Website & Zichtbaarheid' },
@@ -65,63 +62,73 @@ export function Features() {
   const [activeTab, setActiveTab] = useState('website')
 
   const cards = [
-    { icon:<Phone style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Telefonie', desc:'AI voice agent neemt op als jij op een klus zit', price:'vanaf €97/mo' },
-    { icon:<MessageSquare style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Kanaal automatie', desc:'AI op WhatsApp, Instagram en Facebook. Geen enkel bericht gemist.', price:'vanaf €19/mo' },
-    { icon:<Star style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Reviews & reputatie', desc:'Automatisch reviewverzoek na elke klus. Hogere Google positie.', price:'vanaf €29/mo' },
-    { icon:<Zap style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'WhatsApp broadcasts', desc:'Seizoensgebonden campagnes naar je klantenlijst. 1 broadcast = gemiddeld €2.500 extra omzet.', price:'vanaf €47/mo' },
-    { icon:<Users style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Klantcommunicatie', desc:'Bevestigingen, herinneringen, werkbonnen en facturen — allemaal automatisch.', price:'vanaf €19/mo' },
-    { icon:<Calendar style={{color:'#00C8E8',width:'32px',height:'32px'}} strokeWidth={1.5}/>, title:'Agenda & planning', desc:'Afspraken automatisch in je agenda. Geen dubbele boekingen meer.', price:'vanaf €19/mo' },
+    { icon:Phone, title:'Telefonie', desc:'AI voice agent neemt op als jij op een klus zit', price:'vanaf €97/mo' },
+    { icon:MessageSquare, title:'Kanaal automatie', desc:'AI op WhatsApp, Instagram en Facebook. Geen enkel bericht gemist.', price:'vanaf €19/mo' },
+    { icon:Star, title:'Reviews & reputatie', desc:'Automatisch reviewverzoek na elke klus. Hogere Google positie.', price:'vanaf €29/mo' },
+    { icon:Zap, title:'WhatsApp broadcasts', desc:'Seizoensgebonden campagnes naar je klantenlijst. 1 broadcast = gemiddeld €2.500 extra omzet.', price:'vanaf €47/mo' },
+    { icon:Users, title:'Klantcommunicatie', desc:'Bevestigingen, herinneringen, werkbonnen en facturen — allemaal automatisch.', price:'vanaf €19/mo' },
+    { icon:Calendar, title:'Agenda & planning', desc:'Afspraken automatisch in je agenda. Geen dubbele boekingen meer.', price:'vanaf €19/mo' },
   ]
 
   return (
-    <section id="diensten" style={{...st.section,position:'relative' as const,overflow:'hidden'}}>
-      <div style={{position:'absolute',inset:0,zIndex:0,pointerEvents:'none',backgroundImage:'url(https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=60)',backgroundSize:'cover',backgroundPosition:'center',opacity:0.04}}/>
-      <div style={{...st.wrap,position:'relative' as const,zIndex:1}}>
-        <div style={{textAlign:'center',marginBottom:'64px'}}>
-          <span style={st.label}>DIENSTEN</span>
-          <h2 style={st.h2}>Alles wat een vakman nodig heeft</h2>
-          <p style={st.sub}>Zes categorieën. Allemaal gericht op één doel — nooit meer een opdracht missen.</p>
-        </div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(280px,100%),1fr))',gap:'16px'}}>
-          {cards.map((c,i) => (
-            <Card key={i} style={st.card} onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(0,200,232,0.3)'; el.style.transform = 'translateY(-2px)' }} onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(0,200,232,0.15)'; el.style.transform = 'translateY(0)' }}>
-              <CardContent style={{padding:'32px',textAlign:'center'}}>
-                <div style={st.icon}>{c.icon}</div>
-                <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff',margin:'16px 0 8px'}}>{c.title}</h3>
-                <p style={{color:'#94A3B8',fontSize:'14px',lineHeight:1.6}}>{c.desc}</p>
-                <span style={st.badge}>{c.price}</span>
-              </CardContent>
-            </Card>
-          ))}
+    <section id="diensten" className="section section-alt">
+      <div className="container-kf">
+        <div className="mx-auto mb-16 max-w-[640px] text-center">
+          <span className="eyebrow mb-3">Diensten</span>
+          <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-bold">Alles wat een vakman nodig heeft</h2>
+          <p className="mx-auto mt-4 max-w-[480px] text-lg text-body">Zes categorieën. Allemaal gericht op één doel — nooit meer een opdracht missen.</p>
         </div>
 
-        {/* Tabbed services section */}
-        <div style={{marginTop:'80px'}}>
-          <div style={{textAlign:'center',marginBottom:'40px'}}>
-            <span style={{color:'#00C8E8',fontSize:'11px',fontWeight:700,textTransform:'uppercase' as const,letterSpacing:'0.14em',fontFamily:'monospace'}}>LOSSE DIENSTEN</span>
-            <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'clamp(24px,3vw,36px)',fontWeight:800,color:'#fff',marginTop:'8px',letterSpacing:'-0.02em'}}>Kies precies wat jij nodig hebt</h3>
-            <p style={{color:'#94A3B8',fontSize:'15px',marginTop:'8px'}}>Elke dienst is los af te nemen. Start klein, schaal wanneer je wilt.</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((c, i) => {
+            const Icon = c.icon
+            return (
+              <div key={i} data-reveal className="card-kf p-8 text-center">
+                <span className="icon-plate mx-auto h-14 w-14">
+                  <Icon className="h-7 w-7" strokeWidth={1.5} />
+                </span>
+                <h3 className="mb-2 mt-4 text-xl font-semibold text-heading">{c.title}</h3>
+                <p className="text-sm leading-relaxed text-body">{c.desc}</p>
+                <span className="mt-3 inline-block rounded-full px-3.5 py-1 text-xs font-semibold text-brand-text" style={{ background: 'var(--brand-soft)' }}>{c.price}</span>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Tabbed à-la-carte services */}
+        <div className="mt-20">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">Losse diensten</span>
+            <h3 className="mt-2 text-[clamp(1.5rem,3vw,2.25rem)] font-bold">Kies precies wat jij nodig hebt</h3>
+            <p className="mt-2 text-body">Elke dienst is los af te nemen. Start klein, schaal wanneer je wilt.</p>
           </div>
 
-          <div style={{display:'flex',gap:'8px',flexWrap:'wrap' as const,justifyContent:'center',marginBottom:'32px',padding:'0 16px'}}>
-            {tabs.map(t => (
-              <button key={t.id} onClick={()=>setActiveTab(t.id)} style={{padding:'8px 18px',borderRadius:'99px',fontSize:'13px',fontWeight:600,cursor:'pointer',transition:'all 0.2s',background:activeTab===t.id?'#00C8E8':'transparent',color:activeTab===t.id?'#040812':'#94A3B8',border:activeTab===t.id?'1px solid #00C8E8':'1px solid rgba(255,255,255,0.1)'}}>
+          <div className="mb-8 flex flex-wrap justify-center gap-2 px-4">
+            {tabs.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setActiveTab(t.id)}
+                className={
+                  'rounded-full border px-4 py-2 text-[0.8rem] font-semibold transition-colors ' +
+                  (activeTab === t.id
+                    ? 'border-brand bg-brand text-white'
+                    : 'border-hairline bg-white text-body hover:border-hairline-strong hover:text-heading')
+                }
+              >
                 {t.label}
               </button>
             ))}
           </div>
 
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(240px,1fr))',gap:'12px'}}>
-            {services[activeTab].map((svc,i) => (
-              <div key={i} style={{background:'#0A1628',border:'1px solid rgba(0,200,232,0.12)',borderRadius:'14px',padding:'20px 22px',display:'flex',flexDirection:'column' as const,gap:'8px',transition:'all 0.2s'}}
-                onMouseEnter={e=>(e.currentTarget as HTMLElement).style.borderColor='rgba(0,200,232,0.4)'}
-                onMouseLeave={e=>(e.currentTarget as HTMLElement).style.borderColor='rgba(0,200,232,0.12)'}>
-                <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start'}}>
-                  <span style={{fontFamily:'Syne,sans-serif',fontSize:'15px',fontWeight:700,color:'#fff',flex:1,marginRight:'12px'}}>{svc.name}</span>
-                  <span style={{background:'rgba(0,200,232,0.1)',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'2px 10px',color:'#00C8E8',fontSize:'12px',fontWeight:700,whiteSpace:'nowrap' as const,flexShrink:0}}>{svc.price}</span>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {services[activeTab].map((svc, i) => (
+              <div key={i} className="flex flex-col gap-2 rounded-xl border border-hairline bg-white p-5 shadow-[var(--shadow-sm)] transition-colors hover:border-hairline-strong">
+                <div className="flex items-start justify-between gap-3">
+                  <span className="flex-1 text-[0.95rem] font-semibold text-heading">{svc.name}</span>
+                  <span className="shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-semibold text-brand-text" style={{ background: 'var(--brand-soft)' }}>{svc.price}</span>
                 </div>
-                <span style={{color:'#475569',fontSize:'12px',lineHeight:1.5}}>{svc.desc}</span>
-                <a href="#contact" style={{color:'#00C8E8',fontSize:'12px',fontWeight:600,textDecoration:'none',marginTop:'4px'}}>Voeg toe →</a>
+                <span className="text-[0.8rem] leading-relaxed text-body">{svc.desc}</span>
+                <a href="#contact" className="mt-1 text-[0.8rem] font-semibold text-brand-text hover:underline">Voeg toe →</a>
               </div>
             ))}
           </div>
