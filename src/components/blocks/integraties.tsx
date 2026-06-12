@@ -1,13 +1,15 @@
 'use client'
 import Image from 'next/image'
 
+// Icons hosted locally (/public/icons) — the simpleicons CDN 502'd through the
+// Next.js image proxy. SVGs from Simple Icons (CC0), brand colours baked in.
 const logos = [
-  { name: 'WhatsApp', src: 'https://cdn.simpleicons.org/whatsapp/25D366' },
-  { name: 'Instagram', src: 'https://cdn.simpleicons.org/instagram/E4405F' },
-  { name: 'Facebook', src: 'https://cdn.simpleicons.org/facebook/1877F2' },
-  { name: 'Gmail', src: 'https://cdn.simpleicons.org/gmail/EA4335' },
-  { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
-  { name: 'Google Calendar', src: 'https://cdn.simpleicons.org/googlecalendar/4285F4' },
+  { name: 'WhatsApp', src: '/icons/whatsapp.svg' },
+  { name: 'Instagram', src: '/icons/instagram.svg' },
+  { name: 'Facebook', src: '/icons/facebook.svg' },
+  { name: 'Gmail', src: '/icons/gmail.svg' },
+  { name: 'Stripe', src: '/icons/stripe.svg' },
+  { name: 'Google Calendar', src: '/icons/googlecalendar.svg' },
 ]
 
 export function Integraties() {

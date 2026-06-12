@@ -4,13 +4,13 @@ import Link from 'next/link'
 
 const nav: [string, string][] = [
   ['/#werkwijze', 'Werkwijze'], ['/#diensten', 'Diensten'], ['/#prijzen', 'Prijzen'],
-  ['/#resultaten', 'Resultaten'], ['/#faq', 'FAQ'], ['/#contact', 'Contact'],
+  ['/#resultaten', 'Resultaten'], ['/#faq', 'FAQ'], ['/contact', 'Contact'],
 ]
 const diensten = ['AI Voice Agent', 'WhatsApp Automatie', 'Instagram & Facebook DM', 'Website Chatbot', 'Review Automatie', 'WhatsApp Broadcasts']
 const socials = [
-  { href: 'https://www.instagram.com/kwikflow/', label: 'Instagram', src: 'https://cdn.simpleicons.org/instagram/0095AD' },
-  { href: 'https://www.facebook.com/profile.php?id=61575521979134', label: 'Facebook', src: 'https://cdn.simpleicons.org/facebook/0095AD' },
-  { href: 'https://wa.me/31613979782', label: 'WhatsApp', src: 'https://cdn.simpleicons.org/whatsapp/0095AD' },
+  { href: 'https://www.instagram.com/kwikflow/', label: 'Instagram', src: '/icons/instagram-cyan.svg' },
+  { href: 'https://www.facebook.com/profile.php?id=61575521979134', label: 'Facebook', src: '/icons/facebook-cyan.svg' },
+  { href: 'https://wa.me/31613979782', label: 'WhatsApp', src: '/icons/whatsapp-cyan.svg' },
 ]
 
 function Col({ title, children }: { title: string; children: React.ReactNode }) {
