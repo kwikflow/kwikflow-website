@@ -19,7 +19,9 @@
   /* Text */
   --text-heading: #16181D;
   --text-body: #4B5563;
-  --text-muted: #6B7280;
+  /* Muted/secondary text. Kept at #4B5563 (never lighter) for WCAG-AA contrast
+     on white; the old #6B7280 read too faint after the dark→light switch. */
+  --text-muted: #4B5563;
 
   /* Brand accent — use sparingly, one per section */
   --brand: #00C8E8;          /* fills: CTA, icon plates */
@@ -51,8 +53,8 @@
   --primary-foreground: #FFFFFF;
   --secondary: #FAFBFC;
   --secondary-foreground: #16181D;
-  --muted: #FAFBFC;
-  --muted-foreground: #6B7280;
+  --muted: #FAFBFC;            /* surface only (bg-muted) */
+  --muted-foreground: #4B5563; /* muted TEXT — never lighter than this */
   --accent: #F3F4F6;
   --accent-foreground: #16181D;
   --destructive: #EF4444;
@@ -189,7 +191,9 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
+  /* text-muted = muted TEXT colour (#4B5563), NOT the near-white --muted
+     surface. bg-muted keeps a light surface via --color-subtle below. */
+  --color-muted: var(--text-muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
