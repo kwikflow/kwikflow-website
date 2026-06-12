@@ -35,7 +35,7 @@ export default function KwikflowNavbar() {
 
   const links: [string, string][] = [
     ['#werkwijze', 'Werkwijze'], ['#diensten', 'Diensten'], ['#prijzen', 'Prijzen'],
-    ['#resultaten', 'Resultaten'], ['#faq', 'FAQ'], ['#contact', 'Contact'],
+    ['#resultaten', 'Resultaten'], ['#faq', 'FAQ'], ['/contact', 'Contact'],
   ]
 
   return (
