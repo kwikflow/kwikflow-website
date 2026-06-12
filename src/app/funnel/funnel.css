@@ -755,6 +755,7 @@ p { margin: 0; }
   display: flex; align-items: baseline; gap: 4px;
 }
 .price-amount .per { color: var(--muted); font-size: 15px; font-weight: 400; letter-spacing: 0; }
+.price-setup { margin-top: 6px; color: var(--muted); font-size: 13px; }
 .price-name { margin-top: 4px; color: var(--text); font-size: 17px; font-weight: 500; }
 .price-list { list-style: none; padding: 0; margin: 28px 0; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .price-list li {

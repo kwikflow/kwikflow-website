@@ -10,7 +10,7 @@ const diensten = ['AI Voice Agent', 'WhatsApp Automatie', 'Instagram & Facebook 
 const socials = [
   { href: 'https://www.instagram.com/kwikflow/', label: 'Instagram', src: 'https://cdn.simpleicons.org/instagram/0095AD' },
   { href: 'https://www.facebook.com/profile.php?id=61575521979134', label: 'Facebook', src: 'https://cdn.simpleicons.org/facebook/0095AD' },
-  { href: 'https://wa.me/31619619899', label: 'WhatsApp', src: 'https://cdn.simpleicons.org/whatsapp/0095AD' },
+  { href: 'https://wa.me/31613979782', label: 'WhatsApp', src: 'https://cdn.simpleicons.org/whatsapp/0095AD' },
 ]
 
 function Col({ title, children }: { title: string; children: React.ReactNode }) {

@@ -47,7 +47,7 @@ const faqs: [string, string][] = [
   ],
   [
     "Wat als het niet werkt voor mijn bedrijf?",
-    "30 dagen geld-terug garantie. U betaalt alleen als u tevreden bent en het oplevert wat we beloven.",
+    "60 dagen geld-terug garantie. U betaalt alleen als u tevreden bent en het oplevert wat we beloven.",
   ],
   [
     "Moet ik mijn huidige nummer opgeven?",
@@ -123,7 +123,7 @@ function Reveal({
 
 /* ---------- ROI Calculator ---------- */
 
-const PRICE = 397;
+const PRICE = 597;
 const CONVERSION = 0.4;
 
 function ROICalculator() {
@@ -246,7 +246,7 @@ function ROICalculator() {
         <div className="roi-divider" />
         <div className="roi-row">
           <span className="roi-key">Kwikflow kost</span>
-          <span className="roi-value">€397 p/m</span>
+          <span className="roi-value">€597 p/m</span>
         </div>
         <div className="roi-divider" />
         <div className="roi-row">
@@ -348,15 +348,19 @@ export default function FunnelPage() {
     if (!vslRef.current) return;
     const timer = window.setTimeout(() => {
       if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'VSL_View', { content_name: 'Funnel' });
+        (window as any).fbq('trackCustom', 'VSL_View', { content_name: 'Funnel' });
       }
     }, 30000);
     return () => window.clearTimeout(timer);
   }, []);
 
   const handleCalendlyLoad = () => {
+    // Calendly widget loaded; no Lead event is fired here to avoid duplicate conversion tracking.
+  };
+
+  const trackCalendlyLead = (plan: string) => {
     if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
+      (window as any).fbq('track', 'Lead', { content_name: `Funnel Pricing - ${plan}` });
     }
   };
 
@@ -390,7 +394,7 @@ export default function FunnelPage() {
           <div className="hero-content">
             <Reveal as="h1">
               Mis nooit meer een klus.
-              <span className="cyan-line">Vanaf €97 per maand.</span>
+              <span className="cyan-line">Vanaf €149 per maand.</span>
             </Reveal>
             <Reveal as="p" className="hero-sub">
               AI neemt uw telefoon op, beantwoordt WhatsApp, en zorgt dat u in Google bovenaan komt. Terwijl u aan het werk bent.
@@ -675,8 +679,9 @@ export default function FunnelPage() {
             <div className="price-card">
               <span className="price-tier">Starter</span>
               <div className="price-amount">
-                €97<span className="per">/maand</span>
+                €149<span className="per">/maand</span>
               </div>
+              <div className="price-setup">Eenmalige setup €249</div>
               <span className="price-name">Online aanwezigheid op orde</span>
               <ul className="price-list">
                 <li><CheckIcon /> Nieuwe website (of widget op bestaande site)</li>
@@ -686,11 +691,7 @@ export default function FunnelPage() {
               <a
                 href="#cta"
                 className="price-cta"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).fbq) {
-                    (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
-                  }
-                }}
+                onClick={() => trackCalendlyLead('Starter')}
               >
                 Kies Starter
               </a>
@@ -700,8 +701,9 @@ export default function FunnelPage() {
               <span className="price-badge">Meest gekozen</span>
               <span className="price-tier">Groei</span>
               <div className="price-amount">
-                €197<span className="per">/maand</span>
+                €297<span className="per">/maand</span>
               </div>
+              <div className="price-setup">Eenmalige setup €349</div>
               <span className="price-name">AI op alle kanalen</span>
               <ul className="price-list">
                 <li><CheckIcon /> Alles uit Starter</li>
@@ -712,11 +714,7 @@ export default function FunnelPage() {
               <a
                 href="#cta"
                 className="price-cta"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).fbq) {
-                    (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
-                  }
-                }}
+                onClick={() => trackCalendlyLead('Groei')}
               >
                 Kies Groei
               </a>
@@ -725,8 +723,9 @@ export default function FunnelPage() {
             <div className="price-card">
               <span className="price-tier">Schaal</span>
               <div className="price-amount">
-                €397<span className="per">/maand</span>
+                €597<span className="per">/maand</span>
               </div>
+              <div className="price-setup">Eenmalige setup €499</div>
               <span className="price-name">Voice agent + campagnes</span>
               <ul className="price-list">
                 <li><CheckIcon /> Alles uit Groei</li>
@@ -737,11 +736,7 @@ export default function FunnelPage() {
               <a
                 href="#cta"
                 className="price-cta"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).fbq) {
-                    (window as any).fbq('track', 'Lead', { content_name: 'Calendly CTA' });
-                  }
-                }}
+                onClick={() => trackCalendlyLead('Schaal')}
               >
                 Kies Schaal
               </a>
@@ -749,7 +744,7 @@ export default function FunnelPage() {
           </Reveal>
 
           <Reveal as="p" className="pricing-foot">
-            Alle pakketten inclusief 30 dagen geld-terug garantie. Geen lange contracten.
+            Alle pakketten inclusief 60 dagen geld-terug garantie. Geen lange contracten.
           </Reveal>
         </div>
       </section>
@@ -780,7 +775,7 @@ export default function FunnelPage() {
           <div
             className="calendly-inline-widget"
             data-url="https://calendly.com/kwikflow-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=040812&text_color=ffffff&primary_color=00c8e8"
-            style={{ minWidth: '320px', height: '700px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0, 200, 232, 0.15)' }}
+            style={{ width: '100%', minWidth: 0, height: '700px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0, 200, 232, 0.15)' }}
           />
           <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" onLoad={handleCalendlyLoad} />
         </div>
@@ -810,7 +805,7 @@ export default function FunnelPage() {
             <div>
               <div className="footer-heading">Contact</div>
               <ul className="footer-list">
-                <li><a href="tel:+31611223344">+31 (0)6 11 22 33 44</a></li>
+                <li><a href="tel:+31613979782">+31 6 13979782</a></li>
                 <li><a href="mailto:info@kwikflow.nl">info@kwikflow.nl</a></li>
                 <li><span>Vragen? Bekijk de FAQ hieronder →</span></li>
               </ul>

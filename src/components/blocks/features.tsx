@@ -27,7 +27,7 @@ const services: Record<string, {name:string, desc:string, price:string}[]> = {
     { name:'Google Business chat', desc:'Berichten via Google Maps beantwoord', price:'€19/mo' },
   ],
   telefonie: [
-    { name:'AI voice agent 24/7', desc:'Neemt op tijdens klus, stuurt details naar WhatsApp', price:'€97/mo' },
+    { name:'AI voice agent 24/7', desc:'Neemt op tijdens klus, stuurt details naar WhatsApp', price:'€149/mo' },
     { name:'After-hours call handling', desc:'Avond en weekend nooit meer gemist', price:'€47/mo' },
     { name:'Voicemail naar WhatsApp', desc:'Voicemail omgezet naar tekst', price:'€19/mo' },
     { name:'Terugbel notificatie', desc:'Prioriteitsmelding bij elke gemiste oproep', price:'€19/mo' },
@@ -62,7 +62,7 @@ export function Features() {
   const [activeTab, setActiveTab] = useState('website')
 
   const cards = [
-    { icon:Phone, title:'Telefonie', desc:'AI voice agent neemt op als jij op een klus zit', price:'vanaf €97/mo' },
+    { icon:Phone, title:'Telefonie', desc:'AI voice agent neemt op als jij op een klus zit', price:'vanaf €149/mo' },
     { icon:MessageSquare, title:'Kanaal automatie', desc:'AI op WhatsApp, Instagram en Facebook. Geen enkel bericht gemist.', price:'vanaf €19/mo' },
     { icon:Star, title:'Reviews & reputatie', desc:'Automatisch reviewverzoek na elke klus. Hogere Google positie.', price:'vanaf €29/mo' },
     { icon:Zap, title:'WhatsApp broadcasts', desc:'Seizoensgebonden campagnes naar je klantenlijst. 1 broadcast = gemiddeld €2.500 extra omzet.', price:'vanaf €47/mo' },

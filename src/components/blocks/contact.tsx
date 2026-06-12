@@ -62,8 +62,8 @@ export function ContactSection() {
               <div className="flex flex-col gap-3.5">
                 {[
                   { icon: '📧', node: <span className="text-body">info@kwikflow.nl</span> },
-                  { icon: '📱', node: <span className="text-body">+31 6 19 61 98 99</span> },
-                  { icon: '💬', node: <a href="https://wa.me/31619619899" className="font-medium text-brand-text hover:underline">WhatsApp ons direct →</a> },
+                  { icon: '📱', node: <span className="text-body">+31 6 13979782</span> },
+                  { icon: '💬', node: <a href="https://wa.me/31613979782" className="font-medium text-brand-text hover:underline">WhatsApp ons direct →</a> },
                   { icon: '⏰', node: <span className="text-body">Reactie binnen 4 uur op werkdagen</span> },
                 ].map((row, i) => (
                   <div key={i} className="flex items-center gap-2.5 text-sm">
