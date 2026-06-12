@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.kwikflow.nl'),
   title: 'Kwikflow - AI Automatisering voor Vakmensen',
   description:
     'Nooit meer een gemiste opdracht. AI neemt de telefoon op, beantwoordt berichten en haalt leads binnen. Automatiseer je bereikbaarheid volledig.',
@@ -34,6 +35,15 @@ export const metadata: Metadata = {
     description:
       'Nooit meer een gemiste opdracht. AI neemt de telefoon op, beantwoordt berichten en haalt leads binnen.',
     type: 'website',
+    locale: 'nl_NL',
+    url: '/',
+    siteName: 'Kwikflow',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kwikflow - AI Automatisering voor Vakmensen',
+    description:
+      'Nooit meer een gemiste opdracht. AI neemt de telefoon op, beantwoordt berichten en haalt leads binnen.',
   },
 };
 

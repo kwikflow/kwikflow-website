@@ -4,6 +4,7 @@ import { LegalPage } from '@/components/blocks/legal-page'
 export const metadata: Metadata = {
   title: 'Algemene voorwaarden — Kwikflow',
   description: 'De algemene voorwaarden van Kwikflow.',
+  alternates: { canonical: '/voorwaarden' },
 }
 
 export default function VoorwaardenPage() {

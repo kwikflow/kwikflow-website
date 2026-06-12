@@ -4,6 +4,7 @@ import { LegalPage } from '@/components/blocks/legal-page'
 export const metadata: Metadata = {
   title: 'Privacyverklaring — Kwikflow',
   description: 'Hoe Kwikflow omgaat met je persoonsgegevens.',
+  alternates: { canonical: '/privacy' },
 }
 
 export default function PrivacyPage() {

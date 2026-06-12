@@ -5,6 +5,7 @@ import CookiePreferencesButton from '@/components/CookiePreferencesButton'
 export const metadata: Metadata = {
   title: 'Cookiebeleid — Kwikflow',
   description: 'Welke cookies Kwikflow gebruikt en hoe je je toestemming beheert.',
+  alternates: { canonical: '/cookiebeleid' },
 }
 
 export default function CookiebeleidPage() {

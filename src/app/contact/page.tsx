@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Contact — Kwikflow',
   description:
     'Neem contact op met Kwikflow. Plan een gratis strategiegesprek, app of bel ons direct — we reageren binnen 4 uur op werkdagen.',
+  alternates: { canonical: '/contact' },
 }
 
 export default function ContactPage() {

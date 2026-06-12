@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import KwikflowNavbar from '@/components/KwikflowNavbar'
 import { KwikflowHero } from '@/components/ui/cinematic-landing-hero'
 import { Werkwijze } from '@/components/blocks/werkwijze'
@@ -12,6 +13,10 @@ import { Garantie } from '@/components/blocks/garantie'
 import { ContactSection as Contact } from '@/components/blocks/contact'
 import { Footer } from '@/components/blocks/footer'
 import ScrollReveal from '@/components/ScrollReveal'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
 
 export default function Home() {
   return (
