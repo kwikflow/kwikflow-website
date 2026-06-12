@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react'
+import Image from 'next/image'
 
 const testimonials = [
   { id:1, quote:'Het systeem nam maandag 4 oproepen op terwijl ik aan het werk was. Dinsdag had ik €840 extra omzet. Ik snap niet dat ik dit zo lang zonder heb gedaan.', author:'Marco van den Berg', role:'Loodgieter · Rotterdam', result:'€840', label:'extra omzet', avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=128&h=128&fit=crop&crop=face' },
@@ -51,28 +52,27 @@ export function Testimonials() {
           >
             {visible.map((t,i) => (
               <div key={t.id} style={cardStyle(positions[i])} onClick={()=>{ if(i!==0) shuffle() }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={t.avatar} alt={t.author} style={{width:'72px',height:'72px',borderRadius:'50%',objectFit:'cover',border:'2px solid rgba(0,200,232,0.3)'}}/>
+                <Image src={t.avatar} alt={t.author} width={72} height={72} style={{borderRadius:'50%',objectFit:'cover',border:'2px solid rgba(0,200,232,0.3)'}} />
                 <p style={{color:'#94A3B8',fontSize:'13px',lineHeight:1.7,textAlign:'center',fontStyle:'italic',flex:1,margin:'16px 0'}}>&ldquo;{t.quote}&rdquo;</p>
                 <div style={{textAlign:'center'}}>
                   <div style={{fontSize:'36px',fontWeight:800,color:'#00C8E8',fontFamily:'Syne,sans-serif'}}>{t.result}</div>
                   <div style={{color:'#ffffff',fontSize:'13px',fontWeight:600,marginTop:'4px'}}>{t.label}</div>
                   <div style={{color:'#94A3B8',fontSize:'12px',marginTop:'4px'}}>{t.author}</div>
-                  <div style={{color:'#475569',fontSize:'11px'}}>{t.role}</div>
+                  <div style={{color:'#94A3B8',fontSize:'11px'}}>{t.role}</div>
                 </div>
               </div>
             ))}
           </div>
           <div style={{display:'flex',alignItems:'center',gap:'16px'}}>
             <button onClick={shuffle} style={{background:'transparent',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'99px',padding:'10px 24px',color:'#00C8E8',fontSize:'13px',fontWeight:600,cursor:'pointer'}}>Volgende testimonial →</button>
-            <span style={{color:'#475569',fontSize:'12px'}}>{offset + 1} / {testimonials.length}</span>
+            <span style={{color:'#94A3B8',fontSize:'12px'}}>{offset + 1} / {testimonials.length}</span>
           </div>
           <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:'8px',width:'100%',maxWidth:'700px',padding:'0 16px'}}>
             {testimonials.map((t,i) => (
               <div key={i} onClick={()=>setOffset(i)} style={{background:offset===i?'#0F1F3D':'#0A1628',border:offset===i?'1px solid rgba(0,200,232,0.4)':'1px solid rgba(0,200,232,0.15)',borderRadius:'16px',padding:'16px 12px',textAlign:'center' as const,cursor:'pointer',transition:'all 0.2s',overflow:'hidden',minWidth:0}}>
                 <div style={{fontSize:'24px',fontWeight:800,color:'#00C8E8',fontFamily:'Syne,sans-serif',whiteSpace:'nowrap' as const,overflow:'hidden',textOverflow:'ellipsis'}}>{t.result}</div>
                 <div style={{color:'#fff',fontSize:'12px',fontWeight:600,marginTop:'6px'}}>{t.label}</div>
-                <div style={{color:'#475569',fontSize:'11px',marginTop:'4px'}}>{t.role}</div>
+                <div style={{color:'#94A3B8',fontSize:'11px',marginTop:'4px'}}>{t.role}</div>
               </div>
             ))}
           </div>
