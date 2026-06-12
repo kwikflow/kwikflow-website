@@ -1,4 +1,4 @@
-/* Kwikflow funnel - global styles */
+/* Kwikflow funnel - global styles (dark, self-contained) */
 :root {
   --bg: #040812;
   --bg-2: #07101F;
@@ -10,6 +10,16 @@
   --muted: #9CA3AF;
   --border: rgba(244, 246, 251, 0.08);
   --border-strong: rgba(244, 246, 251, 0.14);
+
+  /* The site theme is now light; keep the funnel dark by pinning the
+     shadcn tokens that SocialProofBar / Testimonials depend on. */
+  --background: #040812;
+  --foreground: #F8FAFC;
+  --card: #0A1628;
+  --card-foreground: #F8FAFC;
+  --primary: #00C8E8;
+  --primary-foreground: #040812;
+  --muted-foreground: #94A3B8;
 }
 
 * { box-sizing: border-box; }
@@ -274,6 +284,9 @@ p { margin: 0; }
 }
 .hero-mockup {
   margin-top: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 .hero-cta {
   margin-top: 36px;
@@ -281,6 +294,10 @@ p { margin: 0; }
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+.phone {
+  width: min(320px, 100%);
+  max-width: 100%;
 }
 .proof-line {
   font-size: 13px;
@@ -292,7 +309,7 @@ p { margin: 0; }
 
 /* Phone mockup */
 .phone {
-  width: 320px;
+  width: min(320px, 100%);
   background: linear-gradient(180deg, #0c1830, #060d1c);
   border: 1px solid var(--border-strong);
   border-radius: 36px;
@@ -886,6 +903,11 @@ p { margin: 0; }
 .reveal-stagger.in > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: none; }
 
 /* Responsive */
+@media (max-width: 1100px) {
+  .feature-grid, .testimonial-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-card-wide { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 920px) {
   .section { padding: 80px 0; }
   .feature-grid, .testimonial-grid, .pricing-grid { grid-template-columns: 1fr; }
