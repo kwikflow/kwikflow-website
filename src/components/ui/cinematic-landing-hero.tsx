@@ -72,27 +72,23 @@ export function KwikflowHero({
       />
 
       <div className="container-kf relative z-10 flex flex-col items-center pt-36 pb-20 text-center md:pt-44 md:pb-28">
-        <span data-hero-stagger className="eyebrow mb-6">
+        {/* Core message renders immediately (no fade) so it is always readable;
+            only secondary elements below animate in. */}
+        <span className="eyebrow mb-6">
           AI Automatisering voor Vakmensen
         </span>
 
-        <h1
-          data-hero-stagger
-          className="mx-auto max-w-[16ch] text-[clamp(2.6rem,7vw,5rem)] font-bold leading-[1.04]"
-        >
+        <h1 className="mx-auto max-w-[16ch] text-[clamp(2.6rem,7vw,5rem)] font-bold leading-[1.04]">
           Nooit meer een{" "}
           <span className="text-brand-text">gemiste opdracht.</span>
         </h1>
 
-        <p
-          data-hero-stagger
-          className="mx-auto mt-6 max-w-[42rem] text-[clamp(1.05rem,2vw,1.2rem)] leading-relaxed text-body"
-        >
+        <p className="mx-auto mt-6 max-w-[42rem] text-[clamp(1.05rem,2vw,1.2rem)] leading-relaxed text-body">
           Wij automatiseren jouw bereikbaarheid volledig. AI neemt de telefoon op,
           beantwoordt berichten en haalt leads binnen — terwijl jij gewoon werkt.
         </p>
 
-        <div data-hero-stagger className="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a href="#contact" className="btn btn-primary text-base">
             Start gratis vandaag →
           </a>
