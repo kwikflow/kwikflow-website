@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const nav: [string, string][] = [
-  ['#werkwijze', 'Werkwijze'], ['#diensten', 'Diensten'], ['#prijzen', 'Prijzen'],
-  ['#resultaten', 'Resultaten'], ['#faq', 'FAQ'], ['#contact', 'Contact'],
+  ['/#werkwijze', 'Werkwijze'], ['/#diensten', 'Diensten'], ['/#prijzen', 'Prijzen'],
+  ['/#resultaten', 'Resultaten'], ['/#faq', 'FAQ'], ['/#contact', 'Contact'],
 ]
 const diensten = ['AI Voice Agent', 'WhatsApp Automatie', 'Instagram & Facebook DM', 'Website Chatbot', 'Review Automatie', 'WhatsApp Broadcasts']
 const socials = [
@@ -60,14 +60,14 @@ export function Footer() {
 
           <Col title="Diensten">
             {diensten.map((s) => (
-              <li key={s}><a href="#diensten" className={linkClass}>{s}</a></li>
+              <li key={s}><a href="/#diensten" className={linkClass}>{s}</a></li>
             ))}
           </Col>
 
           <Col title="Contact">
             <li><a href="mailto:info@kwikflow.nl" className={linkClass}>info@kwikflow.nl</a></li>
             <li><span className="text-sm text-body">Nederland &amp; België</span></li>
-            <li className="pt-2"><a href="#contact" className="btn btn-primary text-[0.85rem]" style={{ padding: '0.65rem 1.1rem' }}>Plan strategiegesprek →</a></li>
+            <li className="pt-2"><a href="/#contact" className="btn btn-primary text-[0.85rem]" style={{ padding: '0.65rem 1.1rem' }}>Plan strategiegesprek →</a></li>
           </Col>
         </div>
 

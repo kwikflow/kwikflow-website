@@ -150,6 +150,18 @@
 
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Legal / document prose — readable measure + rhythm */
+  .legal-prose { max-width: 720px; color: var(--text-body); font-size: 1rem; line-height: 1.75; }
+  .legal-prose h2 { font-size: 1.5rem; font-weight: 700; color: var(--text-heading); margin-top: 2.75rem; margin-bottom: 0.75rem; }
+  .legal-prose h3 { font-size: 1.15rem; font-weight: 600; color: var(--text-heading); margin-top: 1.75rem; margin-bottom: 0.5rem; }
+  .legal-prose p { margin-bottom: 1.1rem; }
+  .legal-prose ul, .legal-prose ol { margin: 0 0 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .legal-prose ul { list-style: disc; }
+  .legal-prose ol { list-style: decimal; }
+  .legal-prose a { color: var(--brand-text); text-decoration: underline; text-underline-offset: 2px; }
+  .legal-prose strong { color: var(--text-heading); font-weight: 600; }
+  .legal-prose hr { border: 0; border-top: 1px solid var(--hairline); margin: 2rem 0; }
 }
 
 /* GSAP scroll reveal — initial state applied only once JS marks the doc ready,
