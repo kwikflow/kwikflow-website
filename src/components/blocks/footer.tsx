@@ -46,7 +46,8 @@ export function Footer() {
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline-strong transition-colors hover:border-brand"
                   style={{ background: '#fff' }}
                 >
-                  <Image src={s.src} alt={s.label} width={15} height={15} />
+                  {/* Decorative: the link already has an aria-label. */}
+                  <Image src={s.src} alt="" width={15} height={15} />
                 </a>
               ))}
             </div>
@@ -59,6 +60,9 @@ export function Footer() {
           </Col>
 
           <Col title="Diensten">
+            {/* TODO: vervang /#diensten door eigen landingspagina's per dienst
+                (bijv. /diensten/ai-voice-agent, /diensten/whatsapp-automatie)
+                zodra die bestaan; nu wijzen ze bewust allemaal naar de sectie. */}
             {diensten.map((s) => (
               <li key={s}><Link href="/#diensten" className={linkClass}>{s}</Link></li>
             ))}

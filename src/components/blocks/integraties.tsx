@@ -25,7 +25,8 @@ export function Integraties() {
               key={l.name}
               className="group flex items-center gap-2 rounded-xl border border-hairline bg-white px-4 py-2.5 text-[0.85rem] font-semibold text-muted shadow-[var(--shadow-sm)] transition-colors hover:border-hairline-strong hover:text-heading"
             >
-              <Image src={l.src} alt={l.name} width={22} height={22} loading="lazy" className="opacity-80 transition-opacity group-hover:opacity-100" />
+              {/* Decorative: the brand name is shown as text beside the logo. */}
+              <Image src={l.src} alt="" width={22} height={22} loading="lazy" className="opacity-80 transition-opacity group-hover:opacity-100" />
               {l.name}
             </div>
           ))}
