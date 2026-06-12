@@ -9,33 +9,39 @@ const items = [
   { q: 'Kan ik maandelijks opzeggen?', a: 'Ja, altijd. Geen lock-in, geen opzegboete, geen kleine lettertjes. We geloven dat je blijft omdat het werkt, niet omdat je vastzit aan een contract.' },
   { q: 'Wat als het niks oplevert?', a: 'Zie onze garantie: sta je na 7 werkdagen niet live, dan is je eerste maand gratis. Daarnaast monitoren we wekelijks je resultaten en sturen we bij. Geen resultaat = wij passen aan.' },
   { q: 'Is mijn klantdata veilig?', a: 'Absoluut. We zijn volledig AVG-compliant. Alle data staat op servers in de EU. We delen niks met derden en je kunt op elk moment je data opvragen of laten verwijderen.' },
-  { q: 'Kost setup extra?', a: 'Nee. Bij Groei en Pro is de setup volledig inbegrepen. Bij Starter rekenen we een eenmalige setup fee van €49. Daarna geen verborgen kosten.' },
+  { q: 'Kost setup extra?', a: 'Elk pakket heeft een eenmalige setup fee: Starter €249, Groei €349 en Pro €499. Daarna geen verborgen kosten. Voor de eerste 10 klanten valt de setup fee weg in ruil voor een eerlijke videoreview.' },
 ]
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" style={{ background: '#040812', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <span style={{ color: '#00C8E8', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', fontFamily: 'monospace' }}>VEELGESTELDE VRAGEN</span>
-          <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(32px,5vw,56px)', fontWeight: 800, color: '#fff', marginTop: '12px', letterSpacing: '-0.03em' }}>Alles wat je wilt weten.</h2>
+    <section id="faq" className="section section-alt">
+      <div className="container-kf">
+        <div className="mx-auto mb-16 text-center">
+          <span className="eyebrow mb-3">Veelgestelde vragen</span>
+          <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-bold">Alles wat je wilt weten.</h2>
         </div>
-        <div style={{ maxWidth: '760px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div className="mx-auto flex max-w-[760px] flex-col gap-3">
           {items.map((item, i) => {
             const isOpen = openIndex === i
             return (
-              <div key={i} style={{ background: '#0A1628', border: '1px solid rgba(0,200,232,0.15)', borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.3s' }}>
+              <div key={i} className="overflow-hidden rounded-xl border border-hairline bg-white shadow-[var(--shadow-sm)]">
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  style={{ width: '100%', padding: '20px 24px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', fontWeight: 600, fontSize: '15px', color: '#fff', background: 'none', border: 'none', textAlign: 'left', fontFamily: 'inherit' }}>
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-[0.95rem] font-semibold text-heading"
+                >
                   {item.q}
-                  <span style={{ color: '#00C8E8', fontSize: '20px', flexShrink: 0, transition: 'transform 0.3s', transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>
+                  <span
+                    className="shrink-0 text-xl text-brand-text transition-transform duration-300"
+                    style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}
+                  >
+                    +
+                  </span>
                 </button>
-                <div style={{ maxHeight: isOpen ? '300px' : '0', overflow: 'hidden', transition: 'max-height 0.4s cubic-bezier(0.4,0,0.2,1)' }}>
-                  <div style={{ padding: '0 24px 20px', color: '#94A3B8', fontSize: '14px', lineHeight: 1.7 }}>{item.a}</div>
+                <div className="overflow-hidden transition-[max-height] duration-400" style={{ maxHeight: isOpen ? '320px' : '0' }}>
+                  <div className="px-6 pb-5 text-[0.9rem] leading-relaxed text-body">{item.a}</div>
                 </div>
               </div>
             )

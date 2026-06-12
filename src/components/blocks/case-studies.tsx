@@ -4,24 +4,7 @@ const cases = [
   {
     name: 'Loodgieter',
     role: 'Regio Zuid-Holland',
-    icon: (
-      <div style={{
-        width: '120px',
-        height: '120px',
-        borderRadius: '50%',
-        background: 'linear-gradient(135deg, #1B2A5E 0%, #0a1530 100%)',
-        border: '2px solid rgba(0, 200, 232, 0.3)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: '0 auto',
-        boxShadow: '0 8px 32px rgba(0, 200, 232, 0.15)',
-      }}>
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00C8E8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-        </svg>
-      </div>
-    ),
+    iconPaths: ['M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'],
     before: 'Marco werkte vaak in kruipruimtes of op daken. Telefoon in de auto, oproep gemist. Hij schatte dat hij per week 3–4 klussen misliep omdat klanten niemand anders belden als ze geen gehoor kregen.',
     actions: [
       'AI voice agent die 24/7 opneemt, klant noteert + klus-type herkent',
@@ -38,25 +21,7 @@ const cases = [
   {
     name: 'Schoonmaakbedrijf',
     role: 'Regio Noord-Brabant',
-    icon: (
-      <div style={{
-        width: '120px',
-        height: '120px',
-        borderRadius: '50%',
-        background: 'linear-gradient(135deg, #1B2A5E 0%, #0a1530 100%)',
-        border: '2px solid rgba(0, 200, 232, 0.3)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: '0 auto',
-        boxShadow: '0 8px 32px rgba(0, 200, 232, 0.15)',
-      }}>
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00C8E8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z" />
-          <path d="M5 3v4M3 5h4M19 17v4M17 19h4" />
-        </svg>
-      </div>
-    ),
+    iconPaths: ['M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z', 'M5 3v4M3 5h4M19 17v4M17 19h4'],
     before: 'Lisa had 12 Google reviews en stond op pagina 2. Ze vroeg soms zelf om reviews maar vergat dat 80% van de tijd. Nieuwe klanten vonden haar niet.',
     actions: [
       'Automatisch review-verzoek via WhatsApp 2u na elke klus',
@@ -73,26 +38,7 @@ const cases = [
   {
     name: 'Dakdekker',
     role: 'Regio Noord-Nederland',
-    icon: (
-      <div style={{
-        width: '120px',
-        height: '120px',
-        borderRadius: '50%',
-        background: 'linear-gradient(135deg, #1B2A5E 0%, #0a1530 100%)',
-        border: '2px solid rgba(0, 200, 232, 0.3)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: '0 auto',
-        boxShadow: '0 8px 32px rgba(0, 200, 232, 0.15)',
-      }}>
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00C8E8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V11z" />
-          <path d="M3 11l9-8 9 8" strokeWidth="2.4" />
-          <path d="M9 21V13h6v8" />
-        </svg>
-      </div>
-    ),
+    iconPaths: ['M3 11l9-8 9 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V11z', 'M9 21V13h6v8'],
     before: 'Stef had een mooi seizoen voor de boeg maar was al volgeboekt tot juli. Nieuwe aanvragen kwamen niet eens bij hem terecht omdat hij niet terugbelde.',
     actions: [
       'AI voice agent neemt op + herkent urgentie (lekkage = prio)',
@@ -108,61 +54,68 @@ const cases = [
   },
 ]
 
+function Label({ children }: { children: React.ReactNode }) {
+  return <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.1em] text-muted">{children}</h3>
+}
+
 export function CaseStudies() {
   return (
-    <section id="resultaten" style={{ background: '#040812', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <span style={{ color: '#00C8E8', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', fontFamily: 'monospace' }}>RESULTATEN</span>
-          <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(32px,5vw,56px)', fontWeight: 800, color: '#fff', marginTop: '12px', letterSpacing: '-0.03em' }}>Vakmensen die al meer omzet draaien.</h2>
-          <p style={{ color: '#94A3B8', fontSize: '18px', marginTop: '16px' }}>Geen vage beloftes. Dit is wat onze klanten écht ervaren.</p>
+    <section id="resultaten" className="section section-alt">
+      <div className="container-kf">
+        <div className="mx-auto mb-16 max-w-[680px] text-center">
+          <span className="eyebrow mb-3">Resultaten</span>
+          <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-bold">Vakmensen die al meer omzet draaien.</h2>
+          <p className="mt-4 text-lg text-body">Geen vage beloftes. Dit is wat onze klanten écht ervaren.</p>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          {/* TODO: vervangen door echte cases */}
-          {cases.map(c => (
-            <div key={c.name} style={{ background: '#0A1628', border: '1px solid rgba(0,200,232,0.15)', borderRadius: '20px', padding: 'clamp(28px,4vw,44px)', display: 'grid', gridTemplateColumns: '180px 1fr', gap: '32px', transition: 'border-color 0.3s' }}
-              className="case-card"
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,200,232,0.3)'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,200,232,0.15)'}>
-              <div style={{ textAlign: 'center' }}>
-                {c.icon}
-                <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', marginBottom: '2px', marginTop: '16px' }}>{c.name}</h4>
-                <div style={{ fontSize: '13px', color: '#6B7A94', lineHeight: 1.4 }}>{c.role}</div>
+
+        <div className="flex flex-col gap-8">
+          {cases.map((c) => (
+            <div key={c.name} data-reveal className="card-kf grid gap-8 p-7 md:grid-cols-[180px_1fr] md:p-11">
+              <div className="text-center">
+                <span className="mx-auto flex h-28 w-28 items-center justify-center rounded-full" style={{ background: 'var(--brand-soft)' }}>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--brand-text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    {c.iconPaths.map((d, i) => <path key={i} d={d} />)}
+                  </svg>
+                </span>
+                <h4 className="mt-4 text-[0.95rem] font-semibold text-heading">{c.name}</h4>
+                <div className="text-sm text-muted">{c.role}</div>
               </div>
+
               <div>
-                <h3 style={{ fontSize: '12px', fontWeight: 600, color: '#6B7A94', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>Situatie vóór Kwikflow</h3>
-                <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: 1.7, marginBottom: '16px' }}>{c.before}</p>
-                <h3 style={{ fontSize: '12px', fontWeight: 600, color: '#6B7A94', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>Wat we deden</h3>
-                <ul style={{ margin: '0 0 16px', padding: 0, listStyle: 'none' }}>
+                <Label>Situatie vóór Kwikflow</Label>
+                <p className="mb-4 leading-relaxed text-body">{c.before}</p>
+
+                <Label>Wat we deden</Label>
+                <ul className="mb-4 flex flex-col gap-1">
                   {c.actions.map((a, i) => (
-                    <li key={i} style={{ color: '#94A3B8', fontSize: '14px', padding: '4px 0', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                      <span style={{ color: '#00C8E8', fontWeight: 700, flexShrink: 0 }}>•</span>{a}
+                    <li key={i} className="flex items-start gap-2 text-[0.9rem] text-body">
+                      <span className="mt-0.5 font-bold text-brand-text">•</span>{a}
                     </li>
                   ))}
                 </ul>
-                <h3 style={{ fontSize: '12px', fontWeight: 600, color: '#6B7A94', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Resultaat</h3>
-                <div style={{ display: 'flex', gap: '32px', marginBottom: '20px', flexWrap: 'wrap' }}>
+
+                <Label>Resultaat</Label>
+                <div className="mb-5 flex flex-wrap gap-8">
                   {c.results.map((r, i) => (
-                    <div key={i} style={{ textAlign: 'center' }}>
-                      <div style={{ fontFamily: 'Syne,sans-serif', fontSize: '28px', fontWeight: 800, color: '#00C8E8', lineHeight: 1 }}>{r.big}</div>
-                      <div style={{ fontSize: '11px', color: '#6B7A94', marginTop: '4px' }}>{r.small}</div>
+                    <div key={i} className="text-center">
+                      <div className="text-2xl font-bold leading-none text-brand-text">{r.big}</div>
+                      <div className="mt-1 text-xs text-muted">{r.small}</div>
                     </div>
                   ))}
                 </div>
-                <blockquote style={{ fontStyle: 'italic', color: '#94A3B8', borderLeft: '3px solid #00C8E8', paddingLeft: '16px', fontSize: '14px', lineHeight: 1.7 }}>&ldquo;{c.quote}&rdquo;</blockquote>
+
+                <blockquote className="border-l-[3px] pl-4 text-[0.9rem] italic leading-relaxed text-body" style={{ borderColor: 'var(--brand)' }}>
+                  &ldquo;{c.quote}&rdquo;
+                </blockquote>
               </div>
             </div>
           ))}
         </div>
-        <p style={{ textAlign: 'center', fontSize: '13px', color: 'var(--muted)', fontStyle: 'italic', marginTop: '32px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+
+        <p className="mx-auto mt-8 max-w-[600px] text-center text-[0.8rem] italic text-muted">
           Voorbeeldcases gebaseerd op typische workflows binnen elk vakgebied. Echte case studies volgen zodra onze eerste klanten 90 dagen draaien.
         </p>
       </div>
-      <style>{`
-        @media(max-width:768px){
-          .case-card{grid-template-columns:1fr !important;text-align:center}
-        }
-      `}</style>
     </section>
   )
 }

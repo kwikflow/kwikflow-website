@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Script from 'next/script'
 
-const services = ['Gratis website','Gratis AI widget','AI op WhatsApp','AI voice agent','WhatsApp broadcasts','Review automatie','Starter €97','Groei €197','Pro €297']
+const services = ['Gratis website','Gratis AI widget','AI op WhatsApp','AI voice agent','WhatsApp broadcasts','Review automatie','Starter €149','Groei €297','Pro €597']
 
 export function ContactSection() {
   const [form, setForm] = useState({ name:'', email:'', phone:'', company:'', branche:'', message:'', services:[] as string[] })
@@ -22,112 +22,111 @@ export function ContactSection() {
     }
   }
 
-  const inp: React.CSSProperties = { width:'100%', background:'#040812', border:'1px solid rgba(255,255,255,0.1)', borderRadius:'10px', padding:'14px 18px', color:'#fff', fontSize:'16px', outline:'none', boxSizing:'border-box', fontFamily:'inherit' }
+  const inputClass = 'w-full rounded-[10px] border border-input bg-white px-4 py-3.5 text-base text-heading outline-none transition-colors placeholder:text-muted focus:border-brand'
 
   return (
-    <section id="contact" style={{background:'#040812',padding:'120px 0',position:'relative',overflow:'hidden'}}>
-      <div style={{maxWidth:'800px',margin:'0 auto',padding:'0 32px',position:'relative',zIndex:1}}>
-        <div style={{textAlign:'center',marginBottom:'48px'}}>
-          <span style={{color:'#00C8E8',fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.14em',fontFamily:'monospace'}}>CONTACT</span>
-          <h2 style={{fontFamily:'Syne,sans-serif',fontSize:'clamp(28px,4vw,48px)',fontWeight:800,color:'#fff',marginTop:'12px',letterSpacing:'-0.03em'}}>Plan je gratis strategiegesprek</h2>
-          <p style={{color:'#94A3B8',fontSize:'16px',marginTop:'12px'}}>30 minuten. Geen verkooppraatje. Je loopt weg met inzicht, ook als je niks afneemt.</p>
+    <section id="contact" className="section section-alt">
+      <div className="container-kf max-w-[800px]">
+        <div className="mb-12 text-center">
+          <span className="eyebrow mb-3">Contact</span>
+          <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold">Plan je gratis strategiegesprek</h2>
+          <p className="mt-3 text-base text-body">30 minuten. Geen verkooppraatje. Je loopt weg met inzicht, ook als je niks afneemt.</p>
         </div>
 
         {/* Calendly Embed */}
-        <div style={{background:'#0A1628',border:'1px solid rgba(0,200,232,0.2)',borderRadius:'24px',overflow:'hidden',marginBottom:'36px'}}>
+        <div className="mb-9 overflow-hidden rounded-3xl border border-hairline bg-white shadow-[var(--shadow-md)]">
           <div
             className="calendly-inline-widget"
-            data-url="https://calendly.com/kwikflow-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=040812&text_color=ffffff&primary_color=00c8e8"
-            style={{minWidth:'320px',height:'700px'}}
+            data-url="https://calendly.com/kwikflow-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=16181d&primary_color=00c8e8"
+            style={{ width: '100%', minWidth: 0, height: '700px' }}
           />
           <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
         </div>
 
         {/* Collapsible alternative form */}
-        <div style={{textAlign:'center',marginBottom:'20px'}}>
+        <div className="mb-5 text-center">
           <button
             onClick={() => setShowForm(!showForm)}
-            style={{background:'none',border:'none',color:'#94A3B8',fontSize:'15px',cursor:'pointer',padding:'8px 16px',transition:'color 0.3s',fontFamily:'inherit'}}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#00C8E8'}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#94A3B8'}
-            aria-expanded={showForm}>
+            className="rounded-lg px-4 py-2 text-[0.95rem] text-body transition-colors hover:text-brand-text"
+            aria-expanded={showForm}
+          >
             Liever eerst een bericht sturen? {showForm ? '↑' : '↓'}
           </button>
         </div>
 
-        <div style={{maxHeight:showForm?'1200px':'0',overflow:'hidden',transition:'max-height 0.5s cubic-bezier(0.4,0,0.2,1)'}}>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',paddingTop:'8px',paddingBottom:'20px'}} className="contact-alt-grid">
+        <div className="overflow-hidden transition-[max-height] duration-500" style={{ maxHeight: showForm ? '1300px' : '0' }}>
+          <div className="grid gap-10 pb-5 pt-2 md:grid-cols-2">
             <div>
-              <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff',marginBottom:'12px'}}>Direct contact</h3>
-              <p style={{color:'#94A3B8',marginBottom:'20px',lineHeight:1.7,fontSize:'14px'}}>Stuur een berichtje via WhatsApp of mail ons. We reageren binnen 4 uur op werkdagen.</p>
-              <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
-                <div style={{display:'flex',gap:'10px',alignItems:'center',color:'#94A3B8',fontSize:'14px'}}>
-                  <span style={{width:'36px',height:'36px',background:'rgba(0,200,232,0.15)',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'16px',flexShrink:0}}>📧</span>
-                  info@kwikflow.nl
-                </div>
-                <div style={{display:'flex',gap:'10px',alignItems:'center',color:'#94A3B8',fontSize:'14px'}}>
-                  <span style={{width:'36px',height:'36px',background:'rgba(0,200,232,0.15)',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'16px',flexShrink:0}}>📱</span>
-                  +31 6 19 61 98 99
-                </div>
-                <div style={{display:'flex',gap:'10px',alignItems:'center',fontSize:'14px'}}>
-                  <span style={{width:'36px',height:'36px',background:'rgba(0,200,232,0.15)',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'16px',flexShrink:0}}>💬</span>
-                  <a href="https://wa.me/31619619899" style={{color:'#00C8E8',textDecoration:'none'}}>WhatsApp ons direct →</a>
-                </div>
-                <div style={{display:'flex',gap:'10px',alignItems:'center',color:'#94A3B8',fontSize:'14px'}}>
-                  <span style={{width:'36px',height:'36px',background:'rgba(0,200,232,0.15)',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'16px',flexShrink:0}}>⏰</span>
-                  Reactie binnen 4 uur op werkdagen
-                </div>
+              <h3 className="mb-3 text-xl font-semibold text-heading">Direct contact</h3>
+              <p className="mb-5 text-sm leading-relaxed text-body">Stuur een berichtje via WhatsApp of mail ons. We reageren binnen 4 uur op werkdagen.</p>
+              <div className="flex flex-col gap-3.5">
+                {[
+                  { icon: '📧', node: <span className="text-body">info@kwikflow.nl</span> },
+                  { icon: '📱', node: <span className="text-body">+31 6 19 61 98 99</span> },
+                  { icon: '💬', node: <a href="https://wa.me/31619619899" className="font-medium text-brand-text hover:underline">WhatsApp ons direct →</a> },
+                  { icon: '⏰', node: <span className="text-body">Reactie binnen 4 uur op werkdagen</span> },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-center gap-2.5 text-sm">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] text-base" style={{ background: 'var(--brand-soft)' }}>{row.icon}</span>
+                    {row.node}
+                  </div>
+                ))}
               </div>
             </div>
 
-            {status==='success' ? (
-              <div style={{textAlign:'center',background:'#0A1628',border:'1px solid rgba(0,200,232,0.3)',borderRadius:'20px',padding:'60px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-                <div style={{fontSize:'48px',marginBottom:'16px'}}>✅</div>
-                <h3 style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff'}}>Bedankt!</h3>
-                <p style={{color:'#94A3B8',marginTop:'8px',fontSize:'14px'}}>We nemen binnen 4 uur contact met je op.</p>
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-hairline bg-white p-14 text-center shadow-[var(--shadow-sm)]">
+                <div className="mb-4 text-5xl">✅</div>
+                <h3 className="text-xl font-semibold text-heading">Bedankt!</h3>
+                <p className="mt-2 text-sm text-body">We nemen binnen 4 uur contact met je op.</p>
               </div>
             ) : (
-              <form onSubmit={submit} style={{display:'flex',flexDirection:'column',gap:'14px'}}>
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
-                  <input required placeholder="Naam *" value={form.name} onChange={e=>setForm(f=>({...f,name:e.target.value}))} style={inp}/>
-                  <input placeholder="Bedrijf" value={form.company} onChange={e=>setForm(f=>({...f,company:e.target.value}))} style={inp}/>
+              <form onSubmit={submit} className="flex flex-col gap-3.5">
+                <div className="grid grid-cols-2 gap-3.5">
+                  <input required aria-label="Naam" placeholder="Naam *" value={form.name} onChange={e=>setForm(f=>({...f,name:e.target.value}))} className={inputClass}/>
+                  <input aria-label="Bedrijf" placeholder="Bedrijf" value={form.company} onChange={e=>setForm(f=>({...f,company:e.target.value}))} className={inputClass}/>
                 </div>
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
-                  <input required type="tel" placeholder="Telefoon *" value={form.phone} onChange={e=>setForm(f=>({...f,phone:e.target.value}))} style={inp}/>
-                  <input required type="email" placeholder="E-mail *" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))} style={inp}/>
+                <div className="grid grid-cols-2 gap-3.5">
+                  <input required aria-label="Telefoon" type="tel" placeholder="Telefoon *" value={form.phone} onChange={e=>setForm(f=>({...f,phone:e.target.value}))} className={inputClass}/>
+                  <input required aria-label="E-mail" type="email" placeholder="E-mail *" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))} className={inputClass}/>
                 </div>
-                <select value={form.branche} onChange={e=>setForm(f=>({...f,branche:e.target.value}))} style={{...inp,appearance:'none',backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")`,backgroundRepeat:'no-repeat',backgroundPosition:'right 14px center',paddingRight:'36px'}}>
-                  <option value="" style={{background:'#0B1A3E'}}>Kies je branche</option>
+                <select aria-label="Branche" value={form.branche} onChange={e=>setForm(f=>({...f,branche:e.target.value}))} className={inputClass} style={{ appearance:'none', backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")`, backgroundRepeat:'no-repeat', backgroundPosition:'right 14px center', paddingRight:'36px' }}>
+                  <option value="">Kies je branche</option>
                   {['Loodgieter','Elektricien','Dakdekker','Schoonmaakbedrijf','Klusbedrijf','Installateur','Schilder','Timmerman','Overig'].map(b=>(
-                    <option key={b} value={b.toLowerCase()} style={{background:'#0B1A3E'}}>{b}</option>
+                    <option key={b} value={b.toLowerCase()}>{b}</option>
                   ))}
                 </select>
-                <textarea placeholder="Wat is je grootste uitdaging?" value={form.message} onChange={e=>setForm(f=>({...f,message:e.target.value}))} style={{...inp,minHeight:'90px',resize:'vertical'}}/>
+                <textarea placeholder="Wat is je grootste uitdaging?" value={form.message} onChange={e=>setForm(f=>({...f,message:e.target.value}))} className={inputClass} style={{ minHeight:'90px', resize:'vertical' }}/>
                 <div>
-                  <p style={{color:'#94A3B8',fontSize:'12px',marginBottom:'10px',textTransform:'uppercase',letterSpacing:'0.08em',fontFamily:'monospace'}}>Ik ben geïnteresseerd in:</p>
-                  <div style={{display:'flex',flexWrap:'wrap',gap:'8px'}}>
+                  <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.08em] text-muted">Ik ben geïnteresseerd in:</p>
+                  <div className="flex flex-wrap gap-2">
                     {services.map(s => (
-                      <button type="button" key={s} onClick={()=>toggle(s)} style={{padding:'6px 14px',borderRadius:'99px',fontSize:'12px',fontWeight:600,cursor:'pointer',transition:'all 0.2s',background:form.services.includes(s)?'#00C8E8':'transparent',color:form.services.includes(s)?'#040812':'#94A3B8',border:form.services.includes(s)?'1px solid #00C8E8':'1px solid rgba(255,255,255,0.1)'}}>
+                      <button
+                        type="button"
+                        key={s}
+                        onClick={()=>toggle(s)}
+                        className={
+                          'rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ' +
+                          (form.services.includes(s)
+                            ? 'border-brand bg-brand text-white'
+                            : 'border-hairline bg-white text-body hover:border-hairline-strong')
+                        }
+                      >
                         {s}
                       </button>
                     ))}
                   </div>
                 </div>
-                <button type="submit" disabled={status==='loading'} style={{background:'#00C8E8',color:'#040812',padding:'16px',borderRadius:'10px',fontWeight:700,fontSize:'16px',border:'none',cursor:'pointer',transition:'all 0.2s',opacity:status==='loading'?0.6:1}}>
+                <button type="submit" disabled={status==='loading'} className="btn btn-primary text-base" style={{ opacity: status==='loading' ? 0.6 : 1 }}>
                   {status==='loading' ? 'Versturen...' : 'Verstuur bericht →'}
                 </button>
-                {status==='error' && <p style={{color:'#ff6b6b',textAlign:'center',fontSize:'14px'}}>Er ging iets mis. Probeer het opnieuw of mail info@kwikflow.nl</p>}
-                <p style={{color:'#6B7A94',fontSize:'12px',textAlign:'center'}}>Reactie binnen 4 uur op werkdagen.</p>
+                {status==='error' && <p className="text-center text-sm text-red-500">Er ging iets mis. Probeer het opnieuw of mail info@kwikflow.nl</p>}
+                <p className="text-center text-xs text-muted">Reactie binnen 4 uur op werkdagen.</p>
               </form>
             )}
           </div>
         </div>
       </div>
-      <style>{`
-        @media(max-width:768px){
-          .contact-alt-grid{grid-template-columns:1fr !important}
-        }
-      `}</style>
     </section>
   )
 }
