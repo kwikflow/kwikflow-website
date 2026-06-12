@@ -4,6 +4,11 @@ import Script from "next/script";
 
 const PIXEL_ID = "26587067570985585";
 
+/**
+ * Loads the Meta Pixel. Rendered ONLY after the visitor accepts cookies
+ * (see CookieConsent). Until then nothing here is mounted, so no tracking
+ * script is requested and no fbq events fire.
+ */
 export default function MetaPixel() {
   return (
     <>
