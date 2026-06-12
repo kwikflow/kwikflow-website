@@ -54,20 +54,20 @@ export function Footer() {
 
           <Col title="Navigatie">
             {nav.map(([href, label]) => (
-              <li key={href}><a href={href} className={linkClass}>{label}</a></li>
+              <li key={href}><Link href={href} className={linkClass}>{label}</Link></li>
             ))}
           </Col>
 
           <Col title="Diensten">
             {diensten.map((s) => (
-              <li key={s}><a href="/#diensten" className={linkClass}>{s}</a></li>
+              <li key={s}><Link href="/#diensten" className={linkClass}>{s}</Link></li>
             ))}
           </Col>
 
           <Col title="Contact">
             <li><a href="mailto:info@kwikflow.nl" className={linkClass}>info@kwikflow.nl</a></li>
             <li><span className="text-sm text-body">Nederland &amp; België</span></li>
-            <li className="pt-2"><a href="/#contact" className="btn btn-primary text-[0.85rem]" style={{ padding: '0.65rem 1.1rem' }}>Plan strategiegesprek →</a></li>
+            <li className="pt-2"><Link href="/#contact" className="btn btn-primary text-[0.85rem]" style={{ padding: '0.65rem 1.1rem' }}>Plan strategiegesprek →</Link></li>
           </Col>
         </div>
 

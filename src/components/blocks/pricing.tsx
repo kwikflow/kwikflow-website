@@ -57,8 +57,8 @@ const plans: Plan[] = [
 ]
 
 const trackLead = (name: string) => {
-  if (typeof window !== 'undefined' && (window as any).fbq) {
-    (window as any).fbq('track', 'Lead', { content_name: `Homepage Pricing - ${name}` })
+  if (typeof window !== 'undefined') {
+    window.fbq?.('track', 'Lead', { content_name: `Homepage Pricing - ${name}` })
   }
 }
 

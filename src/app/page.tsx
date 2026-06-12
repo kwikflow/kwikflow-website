@@ -11,6 +11,7 @@ import { FAQ } from '@/components/blocks/faq'
 import { Garantie } from '@/components/blocks/garantie'
 import { ContactSection as Contact } from '@/components/blocks/contact'
 import { Footer } from '@/components/blocks/footer'
+import ScrollReveal from '@/components/ScrollReveal'
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <Garantie />
       <Contact />
       <Footer />
+      <ScrollReveal />
     </>
   )
 }

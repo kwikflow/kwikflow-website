@@ -45,6 +45,14 @@ export default function RootLayout({
   return (
     <html lang="nl" className={cn(inter.variable, 'font-sans')}>
       <body className="antialiased">
+        {/* Pre-paint: hide [data-reveal] only when motion is allowed, so scroll
+            reveals never flash. Falls back to fully visible if JS is off. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('gsap-ready')}",
+          }}
+        />
         {children}
         <CookieConsent />
       </body>

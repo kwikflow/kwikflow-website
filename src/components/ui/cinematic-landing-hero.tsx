@@ -22,23 +22,21 @@ export function KwikflowHero({
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.set("[data-hero-stagger], [data-hero-card]", { opacity: 1, y: 0 });
+      return;
+    }
     const ctx = gsap.context(() => {
-      gsap.from("[data-hero-stagger]", {
-        y: 24,
-        autoAlpha: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.08,
-        delay: 0.1,
-      });
-      gsap.from("[data-hero-card]", {
-        y: 40,
-        autoAlpha: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.35,
-      });
+      gsap.fromTo(
+        "[data-hero-stagger]",
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", stagger: 0.08, delay: 0.1 }
+      );
+      gsap.fromTo(
+        "[data-hero-card]",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.35 }
+      );
     }, rootRef);
     return () => ctx.revert();
   }, []);

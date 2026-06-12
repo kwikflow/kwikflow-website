@@ -27,6 +27,8 @@ export default function MetaPixel() {
         `}
       </Script>
       <noscript>
+        {/* Meta requires a raw 1x1 tracking pixel here; next/image can't be used. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           height="1"
           width="1"

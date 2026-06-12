@@ -22,6 +22,9 @@ export default function CookieConsent() {
       const v = localStorage.getItem(STORAGE_KEY)
       if (v === 'accepted' || v === 'rejected') stored = v
     } catch {}
+    // Reading persisted consent is only possible after mount (no localStorage
+    // on the server), so syncing state here is intentional.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsent(stored)
     setHydrated(true)
   }, [])

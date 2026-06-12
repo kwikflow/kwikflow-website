@@ -2,6 +2,15 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+function Logo() {
+  return (
+    <span className="inline-flex items-center gap-1.5 text-[1.25rem] font-bold tracking-tight text-heading">
+      <span className="text-brand-text">⚡</span>
+      Kwik<span className="text-brand-text">flow</span>
+    </span>
+  )
+}
+
 export default function KwikflowNavbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -19,8 +28,8 @@ export default function KwikflowNavbar() {
   }, [open])
 
   const trackLead = () => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead', { content_name: 'Homepage CTA - Strategiegesprek' })
+    if (typeof window !== 'undefined') {
+      window.fbq?.('track', 'Lead', { content_name: 'Homepage CTA - Strategiegesprek' })
     }
   }
 
@@ -28,13 +37,6 @@ export default function KwikflowNavbar() {
     ['#werkwijze', 'Werkwijze'], ['#diensten', 'Diensten'], ['#prijzen', 'Prijzen'],
     ['#resultaten', 'Resultaten'], ['#faq', 'FAQ'], ['#contact', 'Contact'],
   ]
-
-  const Logo = ({ onDark = false }: { onDark?: boolean }) => (
-    <span className="inline-flex items-center gap-1.5 text-[1.25rem] font-bold tracking-tight" style={{ color: onDark ? '#fff' : 'var(--text-heading)' }}>
-      <span className="text-brand-text">⚡</span>
-      Kwik<span className="text-brand-text">flow</span>
-    </span>
-  )
 
   return (
     <>
