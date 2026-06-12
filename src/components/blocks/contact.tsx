@@ -43,6 +43,23 @@ export function ContactSection() {
           <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
         </div>
 
+        {/* Prominent direct-contact channels — always visible so a lead is never
+            lost, even while the contact form's e-mail backend is being set up. */}
+        <div className="mb-9 flex flex-col items-center gap-3">
+          <p className="text-sm text-muted">Liever direct contact? We reageren binnen 4 uur op werkdagen.</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="https://wa.me/31613979782" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              WhatsApp ons direct
+            </a>
+            <a href="tel:+31613979782" className="btn btn-secondary">
+              Bel +31 6 13979782
+            </a>
+            <a href="mailto:info@kwikflow.nl" className="btn btn-secondary">
+              Mail ons
+            </a>
+          </div>
+        </div>
+
         {/* Collapsible alternative form */}
         <div className="mb-5 text-center">
           <button
@@ -61,9 +78,9 @@ export function ContactSection() {
               <p className="mb-5 text-sm leading-relaxed text-body">Stuur een berichtje via WhatsApp of mail ons. We reageren binnen 4 uur op werkdagen.</p>
               <div className="flex flex-col gap-3.5">
                 {[
-                  { icon: '📧', node: <span className="text-body">info@kwikflow.nl</span> },
-                  { icon: '📱', node: <span className="text-body">+31 6 13979782</span> },
-                  { icon: '💬', node: <a href="https://wa.me/31613979782" className="font-medium text-brand-text hover:underline">WhatsApp ons direct →</a> },
+                  { icon: '📧', node: <a href="mailto:info@kwikflow.nl" className="font-medium text-brand-text hover:underline">info@kwikflow.nl</a> },
+                  { icon: '📱', node: <a href="tel:+31613979782" className="font-medium text-brand-text hover:underline">+31 6 13979782</a> },
+                  { icon: '💬', node: <a href="https://wa.me/31613979782" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-text hover:underline">WhatsApp ons direct →</a> },
                   { icon: '⏰', node: <span className="text-body">Reactie binnen 4 uur op werkdagen</span> },
                 ].map((row, i) => (
                   <div key={i} className="flex items-center gap-2.5 text-sm">
@@ -77,8 +94,8 @@ export function ContactSection() {
             {status === 'success' ? (
               <div className="flex flex-col items-center justify-center rounded-2xl border border-hairline bg-white p-14 text-center shadow-[var(--shadow-sm)]">
                 <div className="mb-4 text-5xl">✅</div>
-                <h3 className="text-xl font-semibold text-heading">Bedankt!</h3>
-                <p className="mt-2 text-sm text-body">We nemen binnen 4 uur contact met je op.</p>
+                <h3 className="text-xl font-semibold text-heading">Bedankt, we reageren binnen 4 uur</h3>
+                <p className="mt-2 text-sm text-body">Op werkdagen nemen we binnen 4 uur contact met je op.</p>
               </div>
             ) : (
               <form onSubmit={submit} className="flex flex-col gap-3.5">
@@ -120,7 +137,7 @@ export function ContactSection() {
                 <button type="submit" disabled={status==='loading'} className="btn btn-primary text-base" style={{ opacity: status==='loading' ? 0.6 : 1 }}>
                   {status==='loading' ? 'Versturen...' : 'Verstuur bericht →'}
                 </button>
-                {status==='error' && <p className="text-center text-sm text-red-500">Er ging iets mis. Probeer het opnieuw of mail info@kwikflow.nl</p>}
+                {status==='error' && <p className="text-center text-sm text-red-500">Er ging iets mis met verzenden. Bereik ons direct via <a href="https://wa.me/31613979782" target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a> of <a href="mailto:info@kwikflow.nl" className="underline">info@kwikflow.nl</a>.</p>}
                 <p className="text-center text-xs text-muted">Reactie binnen 4 uur op werkdagen.</p>
               </form>
             )}
