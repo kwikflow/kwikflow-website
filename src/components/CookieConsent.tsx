@@ -5,6 +5,8 @@ import Link from 'next/link'
 import MetaPixel from './MetaPixel'
 
 const STORAGE_KEY = 'kwikflow-cookie-consent'
+/** Dispatched by the "Cookievoorkeuren wijzigen" button on /cookiebeleid. */
+export const OPEN_PREFERENCES_EVENT = 'kwikflow:open-cookie-preferences'
 type Consent = 'accepted' | 'rejected'
 
 /**
@@ -29,8 +31,21 @@ export default function CookieConsent() {
     setHydrated(true)
   }, [])
 
+  // Re-open the banner when the visitor clicks "Cookievoorkeuren wijzigen".
+  useEffect(() => {
+    const reopen = () => setConsent(null)
+    window.addEventListener(OPEN_PREFERENCES_EVENT, reopen)
+    return () => window.removeEventListener(OPEN_PREFERENCES_EVENT, reopen)
+  }, [])
+
   const choose = (value: Consent) => {
     try { localStorage.setItem(STORAGE_KEY, value) } catch {}
+    // Withdrawing consent after the pixel already loaded: reload so the
+    // in-memory fbq tracking script is fully removed, not just unmounted.
+    if (value === 'rejected' && typeof window !== 'undefined' && (window as Window & { fbq?: unknown }).fbq) {
+      window.location.reload()
+      return
+    }
     setConsent(value)
   }
 

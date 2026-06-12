@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { LegalPage } from '@/components/blocks/legal-page'
+import CookiePreferencesButton from '@/components/CookiePreferencesButton'
 
 export const metadata: Metadata = {
   title: 'Cookiebeleid — Kwikflow',
@@ -52,9 +53,12 @@ export default function CookiebeleidPage() {
 
       <h2>4. Je keuze aanpassen of intrekken</h2>
       <p>
-        Je kunt je toestemming op elk moment aanpassen of intrekken via de
-        cookie-instellingen onderaan onze website. Daarnaast kun je cookies
-        verwijderen via de instellingen van je browser.
+        Je kunt je toestemming op elk moment aanpassen of intrekken. Gebruik de
+        knop hieronder om je cookievoorkeuren opnieuw te openen. Daarnaast kun je
+        cookies verwijderen via de instellingen van je browser.
+      </p>
+      <p>
+        <CookiePreferencesButton />
       </p>
 
       <h2>5. Bewaartermijnen</h2>
