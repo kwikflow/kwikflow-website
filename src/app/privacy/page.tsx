@@ -14,7 +14,8 @@ export default function PrivacyPage() {
         Koophandel onder nummer 90132521 (vestigingsadres volgt) (hierna:
         &ldquo;Kwikflow&rdquo;, &ldquo;wij&rdquo;), is verantwoordelijk voor de
         verwerking van persoonsgegevens zoals beschreven in deze
-        privacyverklaring. Contact: info@kwikflow.nl, +31 6 13979782.
+        privacyverklaring. Contact: <a href="mailto:info@kwikflow.nl">info@kwikflow.nl</a>,{' '}
+        <a href="tel:+31613979782">+31 6 13979782</a>.
       </p>
 
       <h2>1. Welke gegevens wij verzamelen</h2>
