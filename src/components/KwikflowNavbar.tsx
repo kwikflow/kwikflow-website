@@ -7,8 +7,9 @@ export default function KwikflowNavbar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', fn)
+    const fn = () => setScrolled(window.scrollY > 24)
+    fn()
+    window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
@@ -17,62 +18,97 @@ export default function KwikflowNavbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  const trackLead = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead', { content_name: 'Homepage CTA - Strategiegesprek' })
+    }
+  }
+
   const links: [string, string][] = [
-    ['#werkwijze','Werkwijze'],['#diensten','Diensten'],['#prijzen','Prijzen'],
-    ['#resultaten','Resultaten'],['#faq','FAQ'],['#contact','Contact']
+    ['#werkwijze', 'Werkwijze'], ['#diensten', 'Diensten'], ['#prijzen', 'Prijzen'],
+    ['#resultaten', 'Resultaten'], ['#faq', 'FAQ'], ['#contact', 'Contact'],
   ]
+
+  const Logo = ({ onDark = false }: { onDark?: boolean }) => (
+    <span className="inline-flex items-center gap-1.5 text-[1.25rem] font-bold tracking-tight" style={{ color: onDark ? '#fff' : 'var(--text-heading)' }}>
+      <span className="text-brand-text">⚡</span>
+      Kwik<span className="text-brand-text">flow</span>
+    </span>
+  )
 
   return (
     <>
-      <header style={{position:'fixed',top:0,left:0,right:0,zIndex:100,height:'72px',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 24px',backdropFilter:scrolled?'blur(20px)':'none',WebkitBackdropFilter:scrolled?'blur(20px)':'none',background:scrolled?'rgba(4,8,18,0.95)':'transparent',borderBottom:scrolled?'1px solid rgba(0,200,232,0.1)':'1px solid transparent',transition:'all 0.3s'}}>
-        <Link href="/" style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff',textDecoration:'none',display:'flex',alignItems:'center',gap:'6px'}}>
-          <span style={{color:'#00C8E8',fontSize:'14px'}}>⚡</span>
-          Kwik<span style={{color:'#00C8E8'}}>flow</span>
-        </Link>
+      <header
+        className="fixed inset-x-0 top-0 z-[100] h-[72px] transition-all duration-300"
+        style={{
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+          background: scrolled ? 'rgba(255,255,255,0.8)' : 'transparent',
+          borderBottom: scrolled ? '1px solid var(--hairline)' : '1px solid transparent',
+        }}
+      >
+        <div className="container-kf flex h-full items-center justify-between">
+          <Link href="/" aria-label="Kwikflow home">
+            <Logo />
+          </Link>
 
-        <nav className="hidden md:flex" style={{gap:'8px',alignItems:'center'}}>
-          {links.map(([href,label]) => (
-            <a key={href} href={href} style={{padding:'8px 16px',color:'#94A3B8',textDecoration:'none',fontSize:'14px',fontWeight:500,transition:'color 0.2s'}}
-              onMouseEnter={e=>(e.target as HTMLElement).style.color='#fff'}
-              onMouseLeave={e=>(e.target as HTMLElement).style.color='#94A3B8'}>
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-          <a href="#contact" className="hidden sm:inline-flex" style={{border:'1px solid #00C8E8',color:'#00C8E8',padding:'10px 24px',borderRadius:'8px',fontSize:'14px',fontWeight:600,textDecoration:'none',transition:'all 0.2s',background:'transparent'}}
-            onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.background='#00C8E8';(e.currentTarget as HTMLElement).style.color='#040812'}}
-            onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.background='transparent';(e.currentTarget as HTMLElement).style.color='#00C8E8'}}>
-            Plan gratis strategiegesprek
-          </a>
-
-          {/* Mobile hamburger */}
-          <button onClick={() => setOpen(true)} className="md:hidden" style={{background:'none',border:'none',cursor:'pointer',padding:'8px',minHeight:'44px',minWidth:'44px',display:'flex',alignItems:'center',justifyContent:'center'}} aria-label="Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile menu overlay */}
-      {open && (
-        <div style={{position:'fixed',inset:0,zIndex:200,background:'rgba(4,8,18,0.97)',backdropFilter:'blur(20px)',display:'flex',flexDirection:'column'}}>
-          <div style={{height:'72px',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 24px'}}>
-            <span style={{fontFamily:'Syne,sans-serif',fontSize:'20px',fontWeight:700,color:'#fff'}}>
-              <span style={{color:'#00C8E8',fontSize:'14px',marginRight:'6px'}}>⚡</span>
-              Kwik<span style={{color:'#00C8E8'}}>flow</span>
-            </span>
-            <button onClick={() => setOpen(false)} style={{background:'none',border:'none',cursor:'pointer',padding:'8px',minHeight:'44px',minWidth:'44px',display:'flex',alignItems:'center',justifyContent:'center'}} aria-label="Sluiten">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"><path d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-          </div>
-          <div style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'24px'}}>
-            {links.map(([href,label]) => (
-              <a key={href} href={href} onClick={() => setOpen(false)} style={{fontFamily:'Syne,sans-serif',fontSize:'24px',fontWeight:700,color:'#fff',textDecoration:'none',minHeight:'44px',display:'flex',alignItems:'center'}}>
+          <nav className="hidden items-center gap-1 md:flex">
+            {links.map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                className="rounded-lg px-3.5 py-2 text-sm font-medium text-body transition-colors hover:text-heading"
+              >
                 {label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} style={{marginTop:'16px',background:'#00C8E8',color:'#040812',padding:'16px 40px',borderRadius:'10px',fontSize:'16px',fontWeight:700,textDecoration:'none',fontFamily:'Syne,sans-serif'}}>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <a href="#contact" onClick={trackLead} className="btn btn-primary hidden sm:inline-flex">
+              Plan gratis strategiegesprek
+            </a>
+
+            <button
+              onClick={() => setOpen(true)}
+              aria-expanded={open}
+              aria-label="Menu openen"
+              className="flex h-11 w-11 items-center justify-center rounded-lg md:hidden"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-heading)" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {open && (
+        <div className="fixed inset-0 z-[200] flex flex-col bg-white/95 backdrop-blur-xl">
+          <div className="container-kf flex h-[72px] items-center justify-between">
+            <Logo />
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Menu sluiten"
+              className="flex h-11 w-11 items-center justify-center rounded-lg"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-heading)" strokeWidth="1.5" strokeLinecap="round"><path d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          </div>
+          <div className="flex flex-1 flex-col items-center justify-center gap-7">
+            {links.map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                className="text-2xl font-semibold text-heading"
+              >
+                {label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => { trackLead(); setOpen(false) }}
+              className="btn btn-primary mt-2 text-base"
+            >
               Plan strategiegesprek
             </a>
           </div>
